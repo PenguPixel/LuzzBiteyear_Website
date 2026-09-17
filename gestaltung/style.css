@@ -406,3 +406,4 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 	color: var(--schriftfarbe);
 }
 
+/* !!! Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS muss noch eingestellt werden */
