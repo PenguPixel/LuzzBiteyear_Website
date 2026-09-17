@@ -407,3 +407,47 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 }
 
 /* !!! Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS muss noch eingestellt werden */
+
+
+/* Sections, allgemeine Enstellung */
+.section {
+	max-width: 1100px;
+	margin: 0 auto;																							/*die gesamte Section horizontal zentriert*/
+	padding: 5rem 2rem;				/*????WARUM HABE ICH BEIM SECTIONS LINKS SO EIN GROSSES ABSTAND????*/	/*padding: oben/unten 5rem links/rechts 2rem*/
+	box-sizing: border-box;
+}
+
+.section_dunkel {																							/*Trailer Rahmen*/
+	max-width: none;
+	background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+}
+
+.section_dunkel > * {																						/*nimm alle direkte Kinder von der Klasse .section_dunkel - sprich h2, p und figure*/
+	max-width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Section Story */
+
+.spotlight_grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+	align-content: flex-start;																				/*Richte die entstandenen Reihen als Gruppe innerhalb des Flex-Containers aus. Zhora-dolu => flex-start = am Anfang der Querachse.Da flex-direction: row => ist die Querachse vertikal*/
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.spotlight_bild,
+.spotlight_text {																			
+    flex-grow: 1;																							/*Das Element darf wachsen, wenn zusätzlicher Platz vorhanden ist. Ak po rozdelení zostane v riadku ešte voľné miesto, element ho môže využiť.*/
+    flex-shrink: 1;																							/*Das Element darf schrumpfen, wenn nicht genügend Platz vorhanden ist. Keď je priestoru málo, element sa môže zmenšiť, aby sa všetko zmestilo.*/
+    flex-basis: calc(50% - 1rem);																			/*Das Element startet mit ungefähr 50 % der verfügbaren Breite, abzüglich 1rem, weil zwischen den beiden Elementen ein gap von 2rem liegt:50% - 1rem | 2rem | 50% - 1rem*. Chceme, aby obrázok aj text začínali približne na:50 % šírky riadku − polovica priestoru pre gap.*/
+    min-width: 0;																							/*Das Element darf bei Bedarf bis auf 0 schrumpfen und wird nicht durch die natürliche Breite seines Inhalts daran gehindert. Element sa smie zmenšiť aj vtedy, keď má v sebe dlhý obsah.*/
+}
+
+.spotlight_bild img {
+    width: 100%;																							/*Das Bild nimmt die gesamte Breite des Elterns - Aby obrázok vyplnil celý priestor svojho stĺpca - svojho rodica - .spotlight_bild*/
+}
+
