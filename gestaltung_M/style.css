@@ -1,0 +1,351 @@
+/* Luzz Biteyear – style.css: Marianna Batkova 
+
+	CSS Supervision: Philipp Locher
+
+   Farb- und Schriftwerte aus: Website_Layout_Farben_Typo.pdf (Autor: Marianna Batkova, Jennifer Mohr), Typografie_Webdesign_LuzzBiteyear.pdf (Autor des Dokumentes: Jennifer Mohr)
+   
+   Struktur (Nav/Header/Footer-Aufbau, Sidebar-/Accordion-Nav, Icon-Font-Pattern) teilweise Analog /teilweise übernommen und angepasst aus dem
+   Heimische-Helden-Referenzprojekt.
+   
+   Farbkorrektur (Absprache mit Jennifer Mohr): Navigationsleiste + Footer = Parchment, Seitenhintergrund bleibt Deep Canyon.
+   
+	Quellen: https://wiki.selfhtml.org/wiki/SELFHTML
+	
+			https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png   
+*/
+
+
+:root {
+
+    /* HINTERGRÜNDE & ELEMENTE */
+
+    --hintergrundfarbe: #1A0A08;      /* Deep Canyon */
+    --navigationsfarbe: #F0E0BC;     /* Parchment */
+    --footerfarbe: #F0E0BC;           /* Parchment */
+
+
+    /* SCHRIFTEN / TEXTFARBEN */
+
+	--navigations-schriftfarbe: #1A0A08;   /* Deep Canyon */
+
+    --h1-farbe: #B83C1A;                   /* Canyon Red */
+    --h2-farbe: #C4521A;                   /* Terra Cotta */
+    --h3-farbe: #C98930;                   /* Desert Ochre */
+    --eyebrow-farbe: #A0763F;              /* Schoko hell */
+
+    --schriftfarbe: #F0E0BC;               /* Parchment */
+
+    --cta-farbe: #D4B87A;                  /* Warm Sand */
+
+    --footer-ueberschrift-farbe: #C4521A; /* Terra Cotta */
+    --footer-schriftfarbe: #1A0A08;       /* Deep Canyon */
+
+
+    /* BUTTON FARBEN */
+
+	/* „Jetzt spielen“ */
+    --button-spielen: #B83C1A;                  /* Canyon Red */
+    --button-spielen-schrift: #F0E0BC;          /* Parchment */
+
+  
+    /* „Mehr Details“ */
+    --button-details: #F0E0BC;                  /* Parchment */
+    --button-details-schrift: #B83C1A;          /* Canyon Red */
+
+
+    /* „Trailer anschauen“ */
+    --button-trailer: #F0E0BC;                  /* Parchment */
+    --button-trailer-schrift: #B83C1A;          /* Canyon Red */
+
+	/* Hover Alle Buttons */
+    --button-spielen-hover_1: #02EFC3;          /* Stecker Cyan */
+    --button-spielen-hover-schrift: #624023;     /* Schoko */
+
+ /* AKZENTFARBEN */
+
+    --schoko-farbe: #624023;             /* Schoko */
+    --schoko-hell-farbe: #A0763F;        /* Schoko hell */
+    --warm-sand-farbe: #D4B87A;          /* Warm Sand */
+    --energy-violet-farbe: #B525FB;      /* Energy Violet */
+    --luzz-yellow-farbe: #FFEF52;        /* Luzz Yellow */
+    --stecker-cyan-farbe: #02EFC3;       /* Stecker Cyan */
+
+
+    /* TYPOGRAFIE */
+	
+  /* Grundschriftgröße */
+    --schriftgroesse: 16px;
+
+    /* Schriftgrößen */
+    --eyebrow-groesse: 0.8rem;
+    --h1-groesse: 3rem;
+    --banner-groesse: 2rem;
+    --h2-groesse: 2rem;
+    --h3-groesse: 1.5rem;
+    --copy-groesse: 1rem;
+    --button-groesse: 1rem;
+    --footer-groesse: 0.8rem;
+
+
+    /* LAYOUT */
+
+    --abrundung: 10px;
+
+    --abstand-klein: 1rem;
+    --abstand-normal: 2rem;
+    --abstand-gross: 3rem;
+
+
+    /* ???? Wollen wir SCHATTEN haben??? */
+
+    --schattenfarbe: rgba(0, 0, 0, 0.30);
+
+    --boxschatten: 0 6px 30px rgba(0, 0, 0, 0.30);
+	
+	--rahmenfarbe: #F0E0BC; 									/*Border*/
+
+
+    /* TRANSITION */
+
+    --transition: all 0.3s ease;
+}
+
+/* Lokale Schriften (aus dem fonts/-Ordner) */
+
+@font-face {
+	font-family: "Rye";
+	src: url("../fonts/rye/Rye-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;																							/*Quelle: https://wiki.selfhtml.org/wiki/Typografie/Schriftformatierung : Zeige zuerst eine verfügbare Ersatzschrift und tausche sie dann gegen meine gewünschte Schrift aus.*/
+}
+
+@font-face {
+	font-family: "Peralta";
+	src: url("../fonts/peralta/Peralta-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Playfair Display";
+	src: url("../fonts/playfairDisplay/PlayfairDisplay-VariableFont_wght.ttf") format("truetype-variations");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Playfair Display";
+	src: url("../fonts/playfairDisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("truetype-variations");
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Special Elite";
+	src: url("../fonts/specialElite/SpecialElite-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+
+html {
+
+	/*font-family: var(--schriftart-text); ÜBERALL erstmal diese var...???
+	font-size: var(--schriftgroesse);*/
+	scroll-behavior: smooth ;
+}
+
+body {
+	margin: 0 ;
+	padding: 0 ;
+	font-family: "Playfair Display", Georgia, serif;
+	font-size: var(--copy-groesse);
+	background-color: var(--hintergrundfarbe);
+	color: var(--schriftfarbe);
+	line-height: 1.6 ; 																			
+}
+
+#Menueicon {																
+    font-size: 2rem;
+    color: var(--navigations-schriftfarbe);																/*Gestaltung des Burger-Menüs (☰) für die mobile Ansicht, z. B. Größe und Farbe.*/
+}
+
+#Menueicon {																							/*!!!Burger Menü in Desktop/Tablet Version auschalten - in media Querie einschalten!!!!*/
+    display: none;
+}
+
+/*!!!!Vergiss nicht das Burger MEnü im MEdia Query für mobile einzuschalten!!!
+@media (max-width: 768px) {
+
+    #Menueicon {
+        display: block;
+    }
+
+} */
+
+.skip_link {
+	display: none; 
+}
+
+.eyebrow {																								/*Einstellung für Story, Galerie...*/
+    font-family: "Special Elite", monospace;
+    font-size: var(--eyebrow-groesse);
+	font-variant-caps: small-caps;           															/* kleine Großbuchstaben */
+    letter-spacing: 2px;																				/* Abstand zwischen Buchstaben */
+    color: var(--eyebrow-farbe);
+    margin: 0 0 0.5rem;																					/* Abstand nach unten */													
+}
+
+/* Überschriften und Fließtext */
+
+h1,
+h2,
+h3 {
+    margin: 0 0 1rem;																					/*gibt allen Überschriften einen Abstand nach unten*/
+}
+
+h1 {
+    font-family: var(--schriftart-h1);
+    font-size: var(--h1-groesse);
+    color: var(--h1-farbe);
+    line-height: 1.15;
+}
+
+h2 {
+    font-family: var(--schriftart-h2);
+    font-size: var(--h2-groesse);
+    color: var(--h2-farbe);
+}
+
+h3 {
+    font-family: var(--schriftart-h3);
+    font-size: var(--h3-groesse);
+    color: var(--h3-farbe);
+}
+
+.section_dunkel h3 {																					/*H3 bekommt in dunklen Bereichen eine andere, hellere Farbe*/
+    color: var(--cta-farbe);
+}
+
+p {																										/*max-width: 65ch → begrenzt die Breite von Fließtext für bessere Lesbarkeit.*/
+    max-width: 65ch;
+}
+
+/* ── Buttons ──
+   Primärbutton ("jetzt spielen": Canyon Red
+   Sekundärbutton(die andere buttons "mehr details" "trailer anschauen": Parchment
+   Hover: Stecker Cyan */
+
+.button_primary,
+.button_secondary {
+    display: inline-block;																				/*Button bleibt in einer Zeile und lässt sich gleichzeitig wie eine Box gestalten.*/
+    font-family: var(--schriftart-text);
+    font-size: var(--button-groesse);
+    letter-spacing: 0.5px;																				/*Abstand zwischen Buchstaben*/
+    text-decoration: none;
+    border: none;
+    border-radius: var(--abrundung);
+    padding: 0.9rem 2rem;																				/*0,9 oben unten, 2 rechts links*/
+    cursor: pointer;																					/*zeigt bei Mausbedienung die Hand über einem klickbaren Button.*/
+    transition: var(--transition);
+}
+
+.button_primary {
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift);
+}
+
+.button_secondary {
+    background-color: var(--button-details);
+    color: var(--button-details-schrift);
+}
+
+.button_primary:hover,
+.button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
+.button_secondary:hover,
+.button_secondary:focus-visible,
+.trailer_play:hover,
+.trailer_play:focus-visible {
+    background-color: var(--button-spielen-hover_1);
+    color: var(--button-spielen-hover-schrift);
+}
+
+/* Navigationsleiste - Einstellung für den ganzen Container <nav id="Navleiste"> - Gilt für die gesamte Navigationsleiste */
+
+#Navleiste {
+    display: flex;                                  													/* Navigation flexibel anordnen */
+    flex-direction: row;                            													/* Elemente nebeneinander */
+    justify-content: flex-start;                    													/* Elemente beginnen links - chcem aby mi tlacitka sa zacali ukladat zlava od zaciatku */
+    align-items: center;                            													/* Elemente vertikal mittig ausrichten */
+    gap: 3rem;                                      													/* Abstand zwischen den Elementen */
+
+    position: sticky;                              														 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;                                    													/* Navbar liegt über anderen Elementen - /*mi zaruci ze sa dropdown neschova za obrazok figure ale ze to bude pred obrazkom zobrazene - ako take vrstvy si to mozem predstavit ako funkcia ANORDNEN - co bude na vrchu co naspodu*/ */
+
+    padding: 1rem 2rem;                             													/* oben/unten 1rem, links/rechts 2rem */
+
+    background-color: var(--navigationsfarbe);     
+}
+
+
+/* LOGO Gilt nur für das Logo */
+
+#Logo img {
+    height: 1.8rem;                                 													/* Höhe des Logos */
+    width: auto;                                    													/* Breite passt sich automatisch an */
+    display: block;
+}
+
+
+/* NAVIGATIONSLINKS - Gilt für die einzelnen Links im Menü - Container <div id="Navlinks" class="Navlinks"> */
+
+.Navlinks {
+    display: flex;                                  
+    align-items: center;                            													/* Links vertikal mittig */
+    gap: 1.8rem;                                    													/* Abstand zwischen den Links */
+    flex: 1;                                        													/* nimmt den verfügbaren Platz ein, damit das schön eingeordnet ist - den platz zwischen Logo und dem 12 USK */
+}
+
+.Navlinks a {
+    font-family: var(--schriftart-text);            
+    font-size: var(--button-groesse);               
+    text-decoration: none;                          
+    color: var(--navigations-schriftfarbe);        
+    letter-spacing: 0.3px;                         														/* Abstand zwischen Buchstaben */
+}
+
+.Navlinks a:hover {
+    color: var(--h1-farbe);                         
+}
+
+
+/* CTA Button „Jetzt spielen“ in der Navigation */
+
+.nav_cta {
+    font-family: var(--schriftart-text);
+    background-color: var(--button-spielen);        
+    color: var(--button-spielen-schrift) !important;													/*Beim CTA gilt ZWINGEND meine Button-Farbe – nicht die allgemeine Link-Farbe.*/
+    padding: 0.5rem 1.2rem;                         
+    border-radius: var(--abrundung);                
+    text-align: center;
+}
+
+.nav_cta:hover {
+    background-color: var(--stecker-cyan-farbe);   
+    color: var(--button-spielen-hover-schrift) !important;
+}
+
+
+/* USK img Größe des USK-Symbols */
+
+.usk_badge {
+    margin-left: auto;                              													/* schiebt das USK-Symbol nach rechts */
+    width: 2rem;                                    													
+    height: 2rem;                                   														
+    flex-shrink: 0;                                 													/* verhindert Verkleinerung: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-shrink - mache es bei der browser size änderung nicht kleiner Wenn auf einem kleinen Bildschirm zu wenig Platz vorhanden ist, könnte der Flex-Container versuchen, das Badge kleiner zu machen. */
+}
+
