@@ -105,15 +105,6 @@
     --abstand-gross: 3rem;
 
 
-    /* ???? Wollen wir SCHATTEN haben??? */
-
-    --schattenfarbe: rgba(0, 0, 0, 0.30);
-
-    --boxschatten: 0 6px 30px rgba(0, 0, 0, 0.30);
-	
-	--rahmenfarbe: #F0E0BC; 									/*Border*/
-
-
     /* TRANSITION */
 
     --transition: all 0.3s ease;
@@ -406,7 +397,13 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 	color: var(--schriftfarbe);
 }
 
-/* !!! Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS muss noch eingestellt werden */
+
+
+/* !!!????? Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS muss noch eingestellt werden???? */
+
+
+
+
 
 
 /* Sections, allgemeine Enstellung */
@@ -577,6 +574,13 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     width: 100%;
     max-width: 600px;
     height: auto;
+}
+
+
+/* Section Trailer */
+
+.cta-text {																											/*Ausnahme Farbe weil CTA - call to action*/
+	color: var(--cta-farbe);
 }
 
 
