@@ -165,9 +165,9 @@ html {
 	scroll-behavior: smooth ;
 }
 
-html,
 body {
-	max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -417,15 +417,15 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 	box-sizing: border-box;
 }
 
-.section_dunkel {																							/*Trailer Rahmen*/
-	max-width: none;
-	background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-}
 
-.section_dunkel > * {																						/*nimm alle direkte Kinder von der Klasse .section_dunkel - sprich h2, p und figure*/
-	max-width: 1100px;
-	margin-left: auto;
-	margin-right: auto;
+/*Section Rahmen, z.B. Galerie, Trailer Rahmen, usw.*/
+
+.section_dunkel {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    box-sizing: border-box;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
 }
 
 /* Section Story */
@@ -450,4 +450,137 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 .spotlight_bild img {
     width: 100%;																							/*Das Bild nimmt die gesamte Breite des Elterns - Aby obrázok vyplnil celý priestor svojho stĺpca - svojho rodica - .spotlight_bild*/
 }
+
+/* Section Galerie */
+
+.kernidee {
+	max-width: 65ch;																						/*Für bessere LEsbarkeit: Kernidee nech má maximálne príjemnú šírku na čítanie a nech má trochu priestoru nad sebou.*/
+	margin: 0.5rem 0 0;																						/*O, R, L, U ->hore, vpravo, vlavo, dolu*/
+}
+
+
+
+/*????????? Darstellung nicht wie gewünscht, Bilder abgeschnitten "cover?" - ich komme nicht darauf woran das liegt - bitte prüfen, korrigeiren*/
+
+/* Galerie */
+
+.kernidee {
+    max-width: 65ch;
+    margin: 0.5rem 0 0;
+}
+
+.galerie_grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    width: 100%;																								/*übernehme 100% Breite des PArents - .section_dunkel*/
+    margin: 2rem 0 0;																							/*h, v, d -> top, right, bottom*/
+    height: clamp(320px, 30vw, 420px);																			/*clamp - definiert eine minimale, flexible und maximale Höhe*/
+}
+
+/* Großes Bild links – entspricht 1.4fr fraction = podiel / časť dostupného priestoru */
+
+.galerie_gross {																								/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex*/
+    flex-grow: 1.4;																								/*Pomer 1.4:2 medzi lavou a pravou stranou. 1.4 dielika k 2 dielikom => 1.4 bekommt galerie groß und 2 bekommt galerie rechts. Wie viel darf es wachsen ->Das große Bild links bekommt 1,4 Teil von PArent und rechts teil in dem die 3 Bilder drin sind bekommt 2 teile des Parents 1,4:2 -> Veľký obrázok vlavo dostane 1,4 dielu a pravá časť 2 diely dostupného priestoru.*/
+	flex-shrink: 1;																								/*wie stark das Element schrumpfen darf, wenn nicht genügend Platz vorhanden ist*/
+	flex-basis: 0;																								/*die Ausgangsgröße, von der Flexbox bei der Verteilung ausgeht /*Určuje, akú veľkosť má prvok dostať ešte predtým, ako Flexbox začne rozdeľovať voľné miesto. začínaj s veľkosťou 0 a rozdeľ priestor podľa pomeru*/*/
+	min-width: 0;																								/*Mozes sa zmesnit az na 0 ak to flex potrebuje*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Rechte Spalte – entspricht 1fr + 1fr */
+
+.galerie_rechts {
+    flex-grow: 2;																								/*2 Teile des PArents*/
+	flex-shrink: 1;	
+	flex-basis: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Bilder 2 kleinen */
+
+.galerie_rechts .images {
+    flex: 1 1 calc(50% - 0.5rem);																				/*1 flex grow, 1 flex shrink, flex basis: calc(50%-0.5rem)Fang in der Mitte der Breite an - 0,5rem weil ganzer gab 1 rem ist -> Začni približne na polovici šírky a v prípade potreby sa prispôsob*/
+    width: calc(50% - 0.5rem);
+    height: calc(50% - 0.5rem);
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+}
+
+
+/* Bild gross unten */
+
+.galerie_rechts .galerie_breit {
+    flex: 1 1 100%;
+    width: 100%;
+    height: calc(50% - 0.5rem);																					/*zober polovicu dostupnej vysky*/
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+}
+
+/* Section Features*/
+
+.features_layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.features_screens {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 100%;
+    margin: 0;
+}
+
+.features_screens img {
+    flex-grow: 1; 
+	flex-shrink: 1;
+	flex-basis: 0;																									/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex-basis*/
+    min-width: 0;
+    width: 0;
+    aspect-ratio: 1 / 1;																							/*Seiten Verhältnis 1:1 quadratsich -> https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/aspect-ratio*/
+    object-fit: cover;
+}
+
+.features_cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.features_cta p {
+	margin-top: 0;
+	color: var(--cta-farbe);
+}
+
+.features_cta_bild {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+
+
+
+
 
