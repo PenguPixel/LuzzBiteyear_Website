@@ -1,13 +1,15 @@
-/* Luzz Biteyear – style.css: Marianna Batkova 
+/* Luzz Biteyear – style.css Desktop: Marianna Batkova
+				- style.css Tablet/Mobile Media Queries: Jennifer Mohr 
 
-	CSS Supervision: Philipp Locher
+				JavaScript Narrator: Philipp Locher
+				CSS Supervision: Philipp Locher
 
    Farb- und Schriftwerte aus: Website_Layout_Farben_Typo.pdf (Autor: Marianna Batkova, Jennifer Mohr), Typografie_Webdesign_LuzzBiteyear.pdf (Autor des Dokumentes: Jennifer Mohr)
    
    Struktur (Nav/Header/Footer-Aufbau, Sidebar-/Accordion-Nav, Icon-Font-Pattern) teilweise Analog /teilweise übernommen und angepasst aus dem
    Heimische-Helden-Referenzprojekt.
    
-   Farbkorrektur (Absprache mit Jennifer Mohr): Navigationsleiste + Footer = Parchment, Seitenhintergrund bleibt Deep Canyon.
+   Farbkorrektur (Absprache Marianna Batkova & Jennifer Mohr): Navigationsleiste + Footer = Parchment, Seitenhintergrund bleibt Deep Canyon.
    
 	Quellen: https://wiki.selfhtml.org/wiki/SELFHTML
 	
@@ -85,6 +87,13 @@
     --copy-groesse: 1rem;
     --button-groesse: 1rem;
     --footer-groesse: 0.8rem;
+	
+	/* Schriftarten */
+	--schriftart-h1: "Rye", serif;
+	--schriftart-h2: "Rye", serif;
+	--schriftart-h3: "Peralta", serif;
+	--schriftart-text: "Playfair Display", serif;
+	--schriftart-button: "Special Elite", monospace;
 
 
     /* LAYOUT */
@@ -154,6 +163,11 @@ html {
 	/*font-family: var(--schriftart-text); ÜBERALL erstmal diese var...???
 	font-size: var(--schriftgroesse);*/
 	scroll-behavior: smooth ;
+}
+
+html,
+body {
+	max-width: 100%;
 }
 
 body {
@@ -240,7 +254,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 .button_primary,
 .button_secondary {
     display: inline-block;																				/*Button bleibt in einer Zeile und lässt sich gleichzeitig wie eine Box gestalten.*/
-    font-family: var(--schriftart-text);
+    font-family: var(--schriftart-button);
     font-size: var(--button-groesse);
     letter-spacing: 0.5px;																				/*Abstand zwischen Buchstaben*/
     text-decoration: none;
@@ -284,10 +298,8 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     top: 0;
     left: 0;
     right: 0;
-    z-index: 20;                                    													/* Navbar liegt über anderen Elementen - /*mi zaruci ze sa dropdown neschova za obrazok figure ale ze to bude pred obrazkom zobrazene - ako take vrstvy si to mozem predstavit ako funkcia ANORDNEN - co bude na vrchu co naspodu*/ */
-
+    z-index: 20;                                    													/* Navbar liegt über anderen Elementen - mi zaruci ze sa dropdown neschova za obrazok figure ale ze to bude pred obrazkom zobrazene - ako take vrstvy si to mozem predstavit ako funkcia ANORDNEN - co bude na vrchu co naspodu*/ 
     padding: 1rem 2rem;                             													/* oben/unten 1rem, links/rechts 2rem */
-
     background-color: var(--navigationsfarbe);     
 }
 
@@ -295,23 +307,23 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 /* LOGO Gilt nur für das Logo */
 
 #Logo img {
-    height: 1.8rem;                                 													/* Höhe des Logos */
+    height: 2.5rem;                                 													/* Höhe des Logos */
     width: auto;                                    													/* Breite passt sich automatisch an */
     display: block;
 }
 
 
-/* NAVIGATIONSLINKS - Gilt für die einzelnen Links im Menü - Container <div id="Navlinks" class="Navlinks"> */
+/* NAavlinks - Gilt für die einzelnen Links im Menü - Container <div id="Navlinks" class="Navlinks"> */
 
 .Navlinks {
     display: flex;                                  
     align-items: center;                            													/* Links vertikal mittig */
     gap: 1.8rem;                                    													/* Abstand zwischen den Links */
-    flex: 1;                                        													/* nimmt den verfügbaren Platz ein, damit das schön eingeordnet ist - den platz zwischen Logo und dem 12 USK */
+    flex: 1;                              																/* nimmt den verfügbaren Platz ein, damit das schön eingeordnet ist - den platz zwischen Logo und dem 12 USK */
 }
 
 .Navlinks a {
-    font-family: var(--schriftart-text);            
+    font-family: var(--schriftart-button);            
     font-size: var(--button-groesse);               
     text-decoration: none;                          
     color: var(--navigations-schriftfarbe);        
@@ -325,8 +337,8 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 /* CTA Button „Jetzt spielen“ in der Navigation */
 
-.nav_cta {
-    font-family: var(--schriftart-text);
+.Navlinks .nav_cta {
+    font-family: var(--schriftart-button);
     background-color: var(--button-spielen);        
     color: var(--button-spielen-schrift) !important;													/*Beim CTA gilt ZWINGEND meine Button-Farbe – nicht die allgemeine Link-Farbe.*/
     padding: 0.5rem 1.2rem;                         
@@ -347,5 +359,50 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     width: 2rem;                                    													
     height: 2rem;                                   														
     flex-shrink: 0;                                 													/* verhindert Verkleinerung: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-shrink - mache es bei der browser size änderung nicht kleiner Wenn auf einem kleinen Bildschirm zu wenig Platz vorhanden ist, könnte der Flex-Container versuchen, das Badge kleiner zu machen. */
+}
+
+/* Header Hero */
+
+#hero {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	text-align: center;
+	padding-bottom: clamp(1.5rem, 4vw, 3rem);															/*Der Abstand unter dem Hero passt sich automatisch an die Bildschirmbreite an.clamp(MINIMUM, FLEXIBLER WERT, MAXIMUM)*/
+}
+
+#video_header {
+	position: absolute;
+	inset: 0;																							/*inset= top, richt, bottom, left in einem. Setze den Video-Container an alle vier Kanten seines übergeordneten Elements.*/
+	z-index: 0;
+}
+
+#hero_video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#hero::before {																							/*Setze eine abgedunkelte Fläche vor dem Hero mit 55% Transparenz - es wirkt so matt und dunkelt das bisschen ab das video - wie eine Folie davor -> mach dieses Pseudo-Element :: überhaupt sichtbar. Bei ::before ist das nötig! */
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: rgba(26, 10, 8, 0.55);
+	z-index: 1;
+}
+
+.hero_inhalt {
+	position: relative;
+	z-index: 2;
+	max-width: 900px;
+	padding: 0 2rem;
+}
+
+.hero_inhalt h1 {
+	color: var(--schriftfarbe);
 }
 
