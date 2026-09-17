@@ -400,20 +400,39 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 
 
-/* !!!????? Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS muss noch eingestellt werden???? */
+/* !!!????? Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS für den Narrator muss noch eingestellt werden???? */
 
 
 
 
 
+.seiten_raster {																							/*seiten_raster ist der Eltern-Container, der mit Flex die beiden Bereiche .inhalt und unten in <aside> .sticky_aside nebeneinander verteilen kann*/
+    display: flex;
+    flex-direction: row;
+    gap: var(--abstand-normal);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.inhalt {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.sticky_aside {                /*?????????wenn JavaScript Narrator programmiert ausblenden?????????????*/
+    flex: 0 0 250px;
+}
 
 /* Sections, allgemeine Enstellung */
 .section {
 	max-width: 1100px;
 	margin: 0 auto;																							/*die gesamte Section horizontal zentriert*/
-	padding: 5rem 2rem;				/*????WARUM HABE ICH BEIM SECTIONS LINKS SO EIN GROSSES ABSTAND????*/	/*padding: oben/unten 5rem links/rechts 2rem*/
+	padding: 5rem 2rem;																						/*padding: oben/unten 5rem links/rechts 2rem*/
 	box-sizing: border-box;
 }
+
+
+
 
 
 /*Section Rahmen, z.B. Galerie, Trailer Rahmen, usw.*/
@@ -649,12 +668,13 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     display: flex;
     flex-direction: row;
     gap: var(--abstand-normal);
+	max-width: 1000px;
 }
 
 .bewertung {
     flex: 1 1 0;																									/*Die beiden Bewertungen teilen sich den Platz gleichmässig*/
     padding: var(--abstand-normal);
-    background-color: var(--warm-sand-farbe); /*Die Farbe des Hintergrunds muss noch besprochen werden*/
+    background-color: var(--warm-sand-farbe); /*!!!!!!!!!!Die Farbe des Hintergrunds muss noch besprochen werden!!!!!*/
     border-radius: var(--abrundung);
 }
 
@@ -685,5 +705,152 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     color: var(--navigationsfarbe);
     opacity: 0.8;
 }
+
+/* CTA Abschluss ???????????? Bild abgeschnitten - bitte prüfen und korrigieren*/
+
+.cta_abschluss {
+    text-align: center;
+}
+
+.hut_frame {
+    position: relative;
+    max-width: 90%;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--abrundung);
+}
+
+.hut_frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.hut_inhalt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    text-align: center;
+}
+
+.hut_inhalt h3 {
+    margin: 0;
+}
+
+.cta-text {
+    color: var(--cta-farbe);
+}
+
+.button_primary {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift);
+    border-radius: var(--abrundung);
+    font-family: var(--schriftart-button);
+    text-decoration: none;
+}
+
+/* Footer - teilweise Analog Navi Leiste*/
+
+.seitenfuss {
+    background-color: var(--footerfarbe);
+    color: var(--footer-schriftfarbe);
+    padding: var(--abstand-gross) 2rem var(--abstand-klein);
+}
+
+.fuss_spalten {
+    display: flex;
+    flex-direction: row;
+    gap: var(--abstand-normal);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Navigation, Credits, Legal, sollten sich gleichmässig verteilen*/
+.fuss_block {
+    flex: 1 1 0;
+}
+
+.fuss_block h3 {
+    font-family: var(--schriftart-button);
+    font-size: var(--footer-groesse);
+    letter-spacing: 1.5px;
+    color: var(--schoko-farbe);
+    margin-bottom: 0.8rem;
+}
+
+.fuss_block p,
+.fuss_block a {
+    font-family: var(--schriftart-text);
+    font-size: var(--footer-groesse);
+    line-height: 1.6;
+    color: var(--footer-schriftfarbe);
+    text-decoration: none;
+}
+
+.fuss_block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fuss_block li {
+    margin-bottom: 0.5rem;
+}
+
+.fuss_block a:hover {
+    color: var(--h1-farbe);
+}
+
+.fuss_link_akzent {
+    color: var(--h1-farbe) !important;
+}
+
+.fuss_social {
+    display: flex;
+    gap: var(--abstand-klein);
+}
+
+.fuss_social img {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.fuss_copyright {
+    max-width: 1100px;
+    margin: var(--abstand-klein) auto 0;
+    padding: var(--abstand-klein) 0 0;
+    text-align: center;
+    border-top: 1px solid var(--schoko-hell-farbe);
+    font-size: var(--footer-groesse);
+    color: var(--schoko-hell-farbe);
+}
+
+/* Pfeil nach oben Knopf*/
+
+.nach_oben {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift);
+    text-decoration: none;
+}
+
 
 
