@@ -181,14 +181,14 @@ body {
     display: none;
 }
 
-/*!!!!Vergiss nicht das Burger MEnü im MEdia Query für mobile einzuschalten!!!
-@media (max-width: 768px) {
-
-    #Menueicon {
-        display: block;
-    }
-
-} */
+																						/*!!!!Vergiss nicht das Burger MEnü im MEdia Query für mobile einzuschalten!!!
+																						@media (max-width: 768px) {
+																						
+																							#Menueicon {
+																								display: block;
+																							}
+																						
+																						} */
 
 .skip_link {
 	display: none; 
@@ -237,11 +237,6 @@ h3 {
 p {																										/*max-width: 65ch → begrenzt die Breite von Fließtext für bessere Lesbarkeit.*/
     max-width: 65ch;
 }
-
-/* ── Buttons ──
-   Primärbutton ("jetzt spielen": Canyon Red
-   Sekundärbutton(die andere buttons "mehr details" "trailer anschauen": Parchment
-   Hover: Stecker Cyan */
 
 .button_primary,
 .button_secondary {
@@ -675,7 +670,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 .bewertung {
     flex: 1 1 0;																									/*Die beiden Bewertungen teilen sich den Platz gleichmässig*/
     padding: var(--abstand-normal);
-    background-color: var(--schoko-farbe); /*!!!!!!!!!!Die Farbe des Hintergrunds muss noch besprochen werden!!!!!*/
+    background-color: var(--schoko-farbe); 
     border-radius: var(--abrundung);
 }
 
