@@ -14,6 +14,7 @@
 	Quellen: https://wiki.selfhtml.org/wiki/SELFHTML
 	
 			https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png   
+			Zur Berechnung und Überprüfung der technischen Werte, wie z. B. width, height, fr, flex usw., wurde KI als Unterstützung verwendet.
 */
 
 
@@ -520,7 +521,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 /* Bild gross unten */
 
 .galerie_rechts .galerie_breit {
-    flex: 1 1 100%;
+    flex: 1 1 100%;																								/*100%: flex-basis: startet mit 100 % der verfügbaren Breite - Dieses Bild soll in der Flexbox eine eigene komplette Zeile bekommen*/
     width: 100%;
     height: calc(50% - 0.5rem);																					/*zober polovicu dostupnej vysky*/
     min-width: 0;
@@ -577,14 +578,112 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 }
 
 
-/* Section Trailer */
+/* !!!!!!!!!!!!!!!!!!! Muss noch durch den Narrator Frame Tablet ersetzt werden!!!! Section Trailer */
 
 .cta-text {																											/*Ausnahme Farbe weil CTA - call to action*/
 	color: var(--cta-farbe);
 }
 
+.trailer_rahmen {
+    display: flex;
+    align-items: center;
+    gap: var(--abstand-klein);
+    max-width: 1000px;
+    margin: var(--abstand-normal) auto 0;
+    border-radius: var(--abrundung);
+    padding: 1.5rem;
+    box-shadow: var(--boxschatten);
+}
+
+.tv_bildschirm {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    background-color: var(--hintergrundfarbe);
+    border-radius: 32px;
+    padding: 1rem;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+#trailer_video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--hintergrundfarbe);
+    border-radius: 22px;
+    border: none;
+    display: block;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+/*Button*/
+
+.trailer_play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);																					/*Genau in der Mitte des Bildschirms zentriert*/
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--schriftart-button);
+    font-size: var(--button-groesse);
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: var(--abrundung);
+    padding: 0.9rem 2rem;
+    background-color: var(--button-trailer);
+    color: var(--button-trailer-schrift);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.trailer_play::before {																								/*Pseudoklasse ::before -> Füge etwas das Symbol Play Pfeil VOR den normalen Inhalt des Buttons ein*/
+    content: "▶";
+    font-size: 1.2em;
+}
+
+/* Section Bewertungen */
+
+.bewertungen_grid {																									/*Die beiden articel Elemente werden nebeneinander angeordnet*/
+    display: flex;
+    flex-direction: row;
+    gap: var(--abstand-normal);
+}
+
+.bewertung {
+    flex: 1 1 0;																									/*Die beiden Bewertungen teilen sich den Platz gleichmässig*/
+    padding: var(--abstand-normal);
+    background-color: var(--warm-sand-farbe); /*Die Farbe des Hintergrunds muss noch besprochen werden*/
+    border-radius: var(--abrundung);
+}
+
+.bewertung_sterne {
+    color: var(--luzz-yellow-farbe);
+    font-size: 1.2rem;
+}
+
+.bewertung_sterne::before {
+    content: "★★★★★";
+}
+
+.bewertung_text {
+	font-style: italic;
+	color: var(--schriftfarbe);
+    margin: var(--abstand-klein) 0;
+}
 
 
+.bewertung_person {
+    font-family: var(--schriftart-button);
+    font-size: var(--footer-groesse);
+    color: var(--schriftfarbe);
+    margin: 0;
+}
 
+.bewertung_person small {
+    color: var(--navigationsfarbe);
+    opacity: 0.8;
+}
 
 
