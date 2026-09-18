@@ -413,6 +413,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 	z-index: 1;
 }
 
+/*HERO INHALT SOLL WEITER HOCH*/
 .hero_inhalt {
 	position: relative;
 	z-index: 2;
@@ -552,7 +553,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 
 /* Bilder 2 kleinen */
-
+/*CHECKEN WARUM NICHT HALB SO GROẞ*/
 .galerie_rechts .images {
     flex: 1 1 calc(50% - 0.5rem);																				/*1 flex grow, 1 flex shrink, flex basis: calc(50%-0.5rem)Fang in der Mitte der Breite an - 0,5rem weil ganzer gab 1 rem ist -> Začni približne na polovici šírky a v prípade potreby sa prispôsob*/
     width: calc(50% - 0.5rem);
@@ -878,7 +879,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 /* ERGÄNZUGEN VON PHILIPP */
 .schoko_frame {
-    border: 1px solid var(--schoko-hell-farbe);
+    border: 8px solid var(--schoko-hell-farbe);
     border-radius: 10px;
 }
 
@@ -964,7 +965,7 @@ usw.
 hätten wir gerne einen Schokoframe: gemeinsame Basis für alle Rahmen/Flächen - dieser liegt bereits da -> url("./medien/bilder/schokoframe.svg") die Farbe ist background-color: var(--schoko-hell-farbe), border: 8px solid
 	border-radius: 10px - kannst du das bitte in CSS ergänzen - bei meinem Versuch ist mir das ganze Flex logik und Bilder CSS Enstellung zerschossen
 
-ERLEDIGT GLAUBE ICH WEGEN FARBE UND GRÖẞE NACHFRAGEN
+ERLEDIGT
 */
 
 /*VIELEN DANK*/
