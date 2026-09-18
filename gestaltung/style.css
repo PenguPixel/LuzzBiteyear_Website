@@ -281,54 +281,6 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     background-color: var(--navigationsfarbe);     
 }
 
-/* Tablet Query*/
-@media (max-width: 1024px) {
-    #Navleiste {
-        padding: 12px 20px;        
-    }
-    #Menueicon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        cursor: pointer;
-        user-select: none;
-        width: 44px;
-        height: 44px;
-        z-index: 1100;
-        transition: transform 0.2s ease;
-    }
-    #Navlinks {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-    max-width: 80vw;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 80px 24px 40px;
-    gap: 20px;
-    z-index: 1050;
-    /* transform: translate(100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
-    }
-    #Navlinks.offen {
-        transform: translateX(0);
-    }
-    #Navlinks a {
-        display:block;
-    }
-
-    .usk_badge {
-        margin-top: 10px;
-    }
-
-    .nav_cta {
-        width: 100%;
-    }
-}
 
 /* LOGO Gilt nur für das Logo */
 
@@ -383,8 +335,8 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 #hero {
 	position: relative;
-	width: 100%;
-	height: 100vh;
+	width: 100vw;
+	height: auto;
 	overflow: hidden;
 	display: flex;
 	align-items: flex-end;
@@ -437,7 +389,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     display: flex;
     flex-direction: row;
     gap: var(--abstand-normal);
-    max-width: 1400px;
+    width: 90vw;
     margin: 0 auto;
 }
 
@@ -447,12 +399,12 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 }
 
 .sticky_aside {                /*?????????wenn JavaScript Narrator programmiert ausblenden?????????????*/
-    flex: 0 0 250px;
+    flex: 0 0 10vw;
 }
 
 /* Sections, allgemeine Enstellung */
 .section {
-	max-width: 1100px;
+	max-width: 90vw;
 	margin: 0 auto;																							/*die gesamte Section horizontal zentriert*/
 	padding: 5rem 2rem;																						/*padding: oben/unten 5rem links/rechts 2rem*/
 	box-sizing: border-box;
@@ -465,7 +417,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 /*Section Rahmen, z.B. Galerie, Trailer Rahmen, usw.*/
 
 .section_dunkel {
-    max-width: 1100px;
+    max-width: 90vw;
     margin: 0 auto;
     padding: 5rem 2rem;
     box-sizing: border-box;
@@ -526,41 +478,42 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 /* Großes Bild links – entspricht 1.4fr fraction = podiel / časť dostupného priestoru */
 
 .galerie_gross {																								/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex*/
-    flex-grow: 1.4;																								/*Pomer 1.4:2 medzi lavou a pravou stranou. 1.4 dielika k 2 dielikom => 1.4 bekommt galerie groß und 2 bekommt galerie rechts. Wie viel darf es wachsen ->Das große Bild links bekommt 1,4 Teil von PArent und rechts teil in dem die 3 Bilder drin sind bekommt 2 teile des Parents 1,4:2 -> Veľký obrázok vlavo dostane 1,4 dielu a pravá časť 2 diely dostupného priestoru.*/
-	flex-shrink: 1;																								/*wie stark das Element schrumpfen darf, wenn nicht genügend Platz vorhanden ist*/
-	flex-basis: 0;																								/*die Ausgangsgröße, von der Flexbox bei der Verteilung ausgeht Určuje, akú veľkosť má prvok dostať ešte predtým, ako Flexbox začne rozdeľovať voľné miesto. začínaj s veľkosťou 0 a rozdeľ priestor podľa pomeru*/
-	min-width: 0;																								/*Mozes sa zmesnit az na 0 ak to flex potrebuje*/
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    																								/*die Ausgangsgröße, von der Flexbox bei der Verteilung ausgeht Určuje, akú veľkosť má prvok dostať ešte predtým, ako Flexbox začne rozdeľovať voľné miesto. začínaj s veľkosťou 0 a rozdeľ priestor podľa pomeru*/
+	width: 50%;            															/*Mozes sa zmesnit az na 0 ak to flex potrebuje*/
+    object-fit: contain;
+    aspect-ratio: 1/1;
 }
 
 
-/* Rechte Spalte – entspricht 1fr + 1fr */
 
+.galerie_links {
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+/* Rechte Spalte – entspricht 1fr + 1fr */
 .galerie_rechts {
-    flex-grow: 2;																								/*2 Teile des PArents*/
-	flex-shrink: 1;	
-	flex-basis: 0;
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
-    min-width: 0;
-    width: 100%;
+    
+    width: 50%;
     height: 100%;
 }
 
 
 /* Bilder 2 kleinen */
-/*CHECKEN WARUM NICHT HALB SO GROẞ*/
+/*SO UMBAUEN, DASS DIE KLEINEN BILDER OBEN QUADRATISCHE RAHMEN HABEN UDN DIE ABSTÄNDE PASSEN */
 .galerie_rechts .images {
-    flex: 1 1 calc(50% - 0.5rem);																				/*1 flex grow, 1 flex shrink, flex basis: calc(50%-0.5rem)Fang in der Mitte der Breite an - 0,5rem weil ganzer gab 1 rem ist -> Začni približne na polovici šírky a v prípade potreby sa prispôsob*/
-    width: calc(50% - 0.5rem);
-    height: calc(50% - 0.5rem);
+    flex: 1 1 calc(50% - 2rem);																				/*1 flex grow, 1 flex shrink, flex basis: calc(50%-0.5rem)Fang in der Mitte der Breite an - 0,5rem weil ganzer gab 1 rem ist -> Začni približne na polovici šírky a v prípade potreby sa prispôsob*/
     min-width: 0;
     min-height: 0;
-    object-fit: cover;
+    object-fit: contain;
+    aspect-ratio: 1/1;
 }
 
 
@@ -568,10 +521,8 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 .galerie_rechts .galerie_breit {
     flex: 1 1 100%;																								/*100%: flex-basis: startet mit 100 % der verfügbaren Breite - Dieses Bild soll in der Flexbox eine eigene komplette Zeile bekommen*/
-    width: 100%;
-    height: calc(50% - 0.5rem);																					/*zober polovicu dostupnej vysky*/
-    min-width: 0;
-    min-height: 0;
+    aspect-ratio: 2/1;																				/*zober polovicu dostupnej vysky*/
+    
     object-fit: cover;
 }
 
@@ -744,7 +695,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     max-width: 90%;
     aspect-ratio: 16 / 9;
     margin: 0;
-    overflow: hidden;
+    object-fit: contain;
     border-radius: var(--abrundung);
 }
 
