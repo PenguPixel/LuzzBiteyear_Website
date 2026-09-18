@@ -1,0 +1,929 @@
+/* Luzz Biteyear – style.css Desktop: Marianna Batkova
+				- style.css Tablet/Mobile Media Queries: 
+
+				JavaScript Narrator: Philipp Locher
+				CSS Supervision: Philipp Locher
+
+   Farb- und Schriftwerte aus: Website_Layout_Farben_Typo.pdf (Autor: Marianna Batkova, Jennifer Mohr), Typografie_Webdesign_LuzzBiteyear.pdf (Autor des Dokumentes: Jennifer Mohr)
+   
+   Struktur (Nav/Header/Footer-Aufbau, Sidebar-/Accordion-Nav, Icon-Font-Pattern) teilweise Analog /teilweise übernommen und angepasst aus dem
+   Heimische-Helden-Referenzprojekt.
+   
+   Farbkorrektur (Absprache Marianna Batkova & Jennifer Mohr): Navigationsleiste + Footer = Parchment, Seitenhintergrund bleibt Deep Canyon.
+   
+	Quellen: https://wiki.selfhtml.org/wiki/SELFHTML
+	
+			https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png   
+			Zur Berechnung und Überprüfung der technischen Werte, wie z. B. width, height, fr, usw., wurde KI als Unterstützung verwendet.
+*/
+
+
+:root {
+
+    /* HINTERGRÜNDE & ELEMENTE */
+
+    --hintergrundfarbe: #1A0A08;      /* Deep Canyon */
+    --navigationsfarbe: #F0E0BC;     /* Parchment */
+    --footerfarbe: #F0E0BC;           /* Parchment */
+
+
+    /* SCHRIFTEN / TEXTFARBEN */
+
+	--navigations-schriftfarbe: #1A0A08;   /* Deep Canyon */
+
+    --h1-farbe: #B83C1A;                   /* Canyon Red */
+    --h2-farbe: #C4521A;                   /* Terra Cotta */
+    --h3-farbe: #C98930;                   /* Desert Ochre */
+    --eyebrow-farbe: #A0763F;              /* Schoko hell */
+
+    --schriftfarbe: #F0E0BC;               /* Parchment */
+
+    --cta-farbe: #D4B87A;                  /* Warm Sand */
+
+    --footer-ueberschrift-farbe: #C4521A; /* Terra Cotta */
+    --footer-schriftfarbe: #1A0A08;       /* Deep Canyon */
+
+
+    /* BUTTON FARBEN */
+
+	/* „Jetzt spielen“ */
+    --button-spielen: #B83C1A;                  /* Canyon Red */
+    --button-spielen-schrift: #F0E0BC;          /* Parchment */
+
+  
+    /* „Mehr Details“ */
+    --button-details: #F0E0BC;                  /* Parchment */
+    --button-details-schrift: #B83C1A;          /* Canyon Red */
+
+
+    /* „Trailer anschauen“ */
+    --button-trailer: #F0E0BC;                  /* Parchment */
+    --button-trailer-schrift: #B83C1A;          /* Canyon Red */
+
+	/* Hover Alle Buttons */
+    --button-spielen-hover_1: #02EFC3;          /* Stecker Cyan */
+    --button-spielen-hover-schrift: #624023;     /* Schoko */
+
+ /* AKZENTFARBEN */
+
+    --schoko-farbe: #624023;             /* Schoko */
+    --schoko-hell-farbe: #A0763F;        /* Schoko hell */
+    --warm-sand-farbe: #D4B87A;          /* Warm Sand */
+    --energy-violet-farbe: #B525FB;      /* Energy Violet */
+    --luzz-yellow-farbe: #FFEF52;        /* Luzz Yellow */
+    --stecker-cyan-farbe: #02EFC3;       /* Stecker Cyan */
+
+
+    /* TYPOGRAFIE */
+	
+  /* Grundschriftgröße */
+    --schriftgroesse: 16px;
+
+    /* Schriftgrößen */
+    --eyebrow-groesse: 0.8rem;
+    --h1-groesse: 3rem;
+    --banner-groesse: 2rem;
+    --h2-groesse: 2rem;
+    --h3-groesse: 1.5rem;
+    --copy-groesse: 1rem;
+    --button-groesse: 1rem;
+    --footer-groesse: 0.8rem;
+	
+	/* Schriftarten */
+	--schriftart-h1: "Rye", serif;
+	--schriftart-h2: "Rye", serif;
+	--schriftart-h3: "Peralta", serif;
+	--schriftart-text: "Playfair Display", serif;
+	--schriftart-button: "Special Elite", monospace;
+
+
+    /* LAYOUT */
+
+    --abrundung: 10px;
+
+    --abstand-klein: 1rem;
+    --abstand-normal: 2rem;
+    --abstand-gross: 3rem;
+
+
+    /* TRANSITION */
+
+    --transition: all 0.3s ease;
+}
+
+/* Lokale Schriften (aus dem fonts/-Ordner) */
+
+@font-face {
+	font-family: "Rye";
+	src: url("../fonts/rye/Rye-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;																							/*Quelle: https://wiki.selfhtml.org/wiki/Typografie/Schriftformatierung : Zeige zuerst eine verfügbare Ersatzschrift und tausche sie dann gegen meine gewünschte Schrift aus.*/
+}
+
+@font-face {
+	font-family: "Peralta";
+	src: url("../fonts/peralta/Peralta-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Playfair Display";
+	src: url("../fonts/playfairDisplay/PlayfairDisplay-VariableFont_wght.ttf") format("truetype-variations");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Playfair Display";
+	src: url("../fonts/playfairDisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("truetype-variations");
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Special Elite";
+	src: url("../fonts/specialElite/SpecialElite-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+
+html {
+
+	/*font-family: var(--schriftart-text); ÜBERALL erstmal diese var...???
+	font-size: var(--schriftgroesse);*/
+	scroll-behavior: smooth ;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	margin: 0 ;
+	padding: 0 ;
+	font-family: "Playfair Display", Georgia, serif;
+	font-size: var(--copy-groesse);
+	background-color: var(--hintergrundfarbe);
+	color: var(--schriftfarbe);
+	line-height: 1.6 ; 																			
+}
+
+#Menueicon {																
+    font-size: 2rem;
+    color: var(--navigations-schriftfarbe);																/*Gestaltung des Burger-Menüs (☰) für die mobile Ansicht, z. B. Größe und Farbe.*/
+}
+
+#Menueicon {																							/*!!!Burger Menü in Desktop/Tablet Version auschalten - in media Querie einschalten!!!!*/
+    display: none;
+}
+
+																						/*!!!!Vergiss nicht das Burger MEnü im MEdia Query für mobile einzuschalten!!!
+																						@media (max-width: 768px) {
+																						
+																							#Menueicon {
+																								display: block;
+																							}
+																						
+																						} */
+
+.skip_link {
+	display: none; 
+}
+
+.eyebrow {																								/*Einstellung für Story, Galerie...*/
+    font-family: "Special Elite", monospace;
+    font-size: var(--eyebrow-groesse);
+	font-variant-caps: small-caps;           															/* kleine Großbuchstaben */
+    letter-spacing: 2px;																				/* Abstand zwischen Buchstaben */
+    color: var(--eyebrow-farbe);
+    margin: 0 0 0.5rem;																					/* Abstand nach unten */													
+}
+
+/* Überschriften und Fließtext */
+
+h1,
+h2,
+h3 {
+    margin: 0 0 1rem;																					/*gibt allen Überschriften einen Abstand nach unten*/
+}
+
+h1 {
+    font-family: var(--schriftart-h1);
+    font-size: var(--h1-groesse);
+    color: var(--h1-farbe);
+    line-height: 1.15;
+}
+
+h2 {
+    font-family: var(--schriftart-h2);
+    font-size: var(--h2-groesse);
+    color: var(--h2-farbe);
+}
+
+h3 {
+    font-family: var(--schriftart-h3);
+    font-size: var(--h3-groesse);
+    color: var(--h3-farbe);
+}
+
+.section_dunkel h3 {																					/*H3 bekommt in dunklen Bereichen eine andere, hellere Farbe*/
+    color: var(--cta-farbe);
+}
+
+p {																										/*max-width: 65ch → begrenzt die Breite von Fließtext für bessere Lesbarkeit.*/
+    max-width: 65ch;
+}
+
+.button_primary,
+.button_secondary {
+    display: inline-block;																				/*Button bleibt in einer Zeile und lässt sich gleichzeitig wie eine Box gestalten.*/
+    font-family: var(--schriftart-button);
+    font-size: var(--button-groesse);
+    letter-spacing: 0.5px;																				/*Abstand zwischen Buchstaben*/
+    text-decoration: none;
+    border: none;
+    border-radius: var(--abrundung);
+    padding: 0.9rem 2rem;																				/*0,9 oben unten, 2 rechts links*/
+    cursor: pointer;																					/*zeigt bei Mausbedienung die Hand über einem klickbaren Button.*/
+    transition: var(--transition);
+}
+
+.button_primary {
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift);
+}
+
+.button_secondary {
+    background-color: var(--button-details);
+    color: var(--button-details-schrift);
+}
+
+/* Navigationsleiste - Einstellung für den ganzen Container <nav id="Navleiste"> - Gilt für die gesamte Navigationsleiste */
+
+#Navleiste {
+    display: flex;                                  													/* Navigation flexibel anordnen */
+    flex-direction: row;                            													/* Elemente nebeneinander */
+    justify-content: flex-start;                    													/* Elemente beginnen links - chcem aby mi tlacitka sa zacali ukladat zlava od zaciatku */
+    align-items: center;                            													/* Elemente vertikal mittig ausrichten */
+    gap: 3rem;                                      													/* Abstand zwischen den Elementen */
+
+    position: sticky;                              														 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;             
+    height: 4rem;                       													/* Navbar liegt über anderen Elementen - mi zaruci ze sa dropdown neschova za obrazok figure ale ze to bude pred obrazkom zobrazene - ako take vrstvy si to mozem predstavit ako funkcia ANORDNEN - co bude na vrchu co naspodu*/ 
+    padding: 1rem 2rem;                             													/* oben/unten 1rem, links/rechts 2rem */
+    background-color: var(--navigationsfarbe);     
+}
+
+
+/* LOGO Gilt nur für das Logo */
+
+#Logo img {
+    height: 5.5rem;                                 													/* Höhe des Logos */
+    width: auto;                                    													/* Breite passt sich automatisch an */
+    display: block;
+}
+
+
+/* NAavlinks - Gilt für die einzelnen Links im Menü - Container <div id="Navlinks" class="Navlinks"> */
+
+.Navlinks {
+    display: flex;                                  
+    align-items: center;                            													/* Links vertikal mittig */
+    gap: 1.8rem;                                    													/* Abstand zwischen den Links */
+    flex: 1;                              																/* nimmt den verfügbaren Platz ein, damit das schön eingeordnet ist - den platz zwischen Logo und dem 12 USK */
+}
+
+.Navlinks a {
+    font-family: var(--schriftart-button);            
+    font-size: var(--button-groesse);               
+    text-decoration: none;                          
+    color: var(--navigations-schriftfarbe);        
+    letter-spacing: 0.3px;                         														/* Abstand zwischen Buchstaben */
+}
+
+
+/* CTA Button „Jetzt spielen“ in der Navigation */
+
+.Navlinks .nav_cta {
+    font-family: var(--schriftart-button);
+    background-color: var(--button-spielen);        
+    color: var(--button-spielen-schrift) !important;	
+    min-width: 8rem;												/*Beim CTA gilt ZWINGEND meine Button-Farbe – nicht die allgemeine Link-Farbe.*/
+    padding: 0.5rem 1.2rem;             
+    margin-left: 2rem;           
+    border-radius: var(--abrundung);                
+    text-align: center;
+}
+
+/* USK img Größe des USK-Symbols */
+
+.usk_badge {
+    margin-left: auto;                              													/* schiebt das USK-Symbol nach rechts */
+    width: 2rem;                                    													
+    height: auto;                                   														
+    flex-shrink: 0;                                 													/* verhindert Verkleinerung: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-shrink - mache es bei der browser size änderung nicht kleiner Wenn auf einem kleinen Bildschirm zu wenig Platz vorhanden ist, könnte der Flex-Container versuchen, das Badge kleiner zu machen. */
+}
+
+/* Header Hero */
+
+#hero {
+	position: relative;
+	width: 100%;
+    height: 70vh;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	text-align: center;
+	padding-bottom: clamp(1.5rem, 4vw, 3rem);															/*Der Abstand unter dem Hero passt sich automatisch an die Bildschirmbreite an.clamp(MINIMUM, FLEXIBLER WERT, MAXIMUM)*/
+}
+
+#image_header {
+	position: absolute;
+	inset: 0;																							/*inset= top, richt, bottom, left in einem. Setze den Video-Container an alle vier Kanten seines übergeordneten Elements.*/
+	z-index: 0;
+}
+
+#hero_image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#hero::before {																							/*Setze eine abgedunkelte Fläche vor dem Hero mit 55% Transparenz - es wirkt so matt und dunkelt das bisschen ab das video - wie eine Folie davor -> mach dieses Pseudo-Element :: überhaupt sichtbar. Bei ::before ist das nötig! */
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: rgba(26, 10, 8, 0.55);
+	z-index: 1;
+}
+
+/*HERO INHALT SOLL WEITER HOCH*/
+.hero_inhalt {
+	position: relative;
+	z-index: 2;
+	max-width: 900px;
+	padding: 0 2rem;
+}
+
+.hero_inhalt h1 {
+	color: var(--schriftfarbe);
+}
+
+
+
+/* !!!????? Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS für den Narrator muss noch eingestellt werden???? */
+
+
+
+
+
+.seiten_raster {																							/*seiten_raster ist der Eltern-Container, der mit Flex die beiden Bereiche .inhalt und unten in <aside> .sticky_aside nebeneinander verteilen kann*/
+    display: flex;
+    flex-direction: row;
+    gap: var(--abstand-normal);
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.inhalt {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.sticky_aside {                /*?????????wenn JavaScript Narrator programmiert ausblenden?????????????*/
+    flex: 0 0 10vw;
+}
+
+/* Sections, allgemeine Enstellung */
+.section {
+	max-width: 90vw;
+	margin: 0 auto;																							/*die gesamte Section horizontal zentriert*/
+	padding: 5rem 2rem;																						/*padding: oben/unten 5rem links/rechts 2rem*/
+	box-sizing: border-box;
+}
+
+
+
+
+
+/*Section Rahmen, z.B. Galerie, Trailer Rahmen, usw.*/
+
+.section_dunkel {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    box-sizing: border-box;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+}
+
+/* Section Story */
+
+.spotlight_grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+	align-content: flex-start;																				/*Richte die entstandenen Reihen als Gruppe innerhalb des Flex-Containers aus. Zhora-dolu => flex-start = am Anfang der Querachse.Da flex-direction: row => ist die Querachse vertikal*/
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.spotlight_bild,
+.spotlight_text {																			
+    flex-grow: 1;																							/*Das Element darf wachsen, wenn zusätzlicher Platz vorhanden ist. Ak po rozdelení zostane v riadku ešte voľné miesto, element ho môže využiť.*/
+    flex-shrink: 1;																							/*Das Element darf schrumpfen, wenn nicht genügend Platz vorhanden ist. Keď je priestoru málo, element sa môže zmenšiť, aby sa všetko zmestilo.*/
+    flex-basis: calc(50% - 1rem);																			/*Das Element startet mit ungefähr 50 % der verfügbaren Breite, abzüglich 1rem, weil zwischen den beiden Elementen ein gap von 2rem liegt:50% - 1rem | 2rem | 50% - 1rem*. Chceme, aby obrázok aj text začínali približne na:50 % šírky riadku − polovica priestoru pre gap.*/
+    min-width: 0;																							/*Das Element darf bei Bedarf bis auf 0 schrumpfen und wird nicht durch die natürliche Breite seines Inhalts daran gehindert. Element sa smie zmenšiť aj vtedy, keď má v sebe dlhý obsah.*/
+}
+
+.spotlight_bild img {
+    width: 100%;																							/*Das Bild nimmt die gesamte Breite des Elterns - Aby obrázok vyplnil celý priestor svojho stĺpca - svojho rodica - .spotlight_bild*/
+}
+
+/* Section Galerie */
+
+.kernidee {
+	max-width: 65ch;																						/*Für bessere LEsbarkeit: Kernidee nech má maximálne príjemnú šírku na čítanie a nech má trochu priestoru nad sebou.*/
+	margin: 0.5rem 0 0;																						/*O, R, L, U ->hore, vpravo, vlavo, dolu*/
+}
+
+
+
+/*????????? Darstellung nicht wie gewünscht, Bilder abgeschnitten "cover?" - ich komme nicht darauf woran das liegt - bitte prüfen, korrigeiren*/
+
+/* Galerie */
+
+.kernidee {
+    max-width: 65ch;
+    margin: 0.5rem 0 0;
+}
+
+.galerie_grid {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;																								/*übernehme 100% Breite des PArents - .section_dunkel*/
+    margin: 2rem 0 0;																							/*h, v, d -> top, right, bottom*/
+    																		/*clamp - definiert eine minimale, flexible und maximale Höhe*/
+    box-sizing: border-box;
+                                                                        }
+
+/* Großes Bild links – entspricht 1.4fr fraction = podiel / časť dostupného priestoru */
+
+.galerie_gross {																								/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex*/
+    width: 100%;
+    aspect-ratio: 1/1;																							/*die Ausgangsgröße, von der Flexbox bei der Verteilung ausgeht Určuje, akú veľkosť má prvok dostať ešte predtým, ako Flexbox začne rozdeľovať voľné miesto. začínaj s veľkosťou 0 a rozdeľ priestor podľa pomeru*/
+    object-fit: cover;
+    display: block;
+}
+
+.galerie_links {
+        flex:1 1 50%;
+        display: flex;
+}
+/* Rechte Spalte – entspricht 1fr + 1fr */
+.galerie_rechts {    
+    flex:1 1 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.small_images {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.small_images .images {
+    flex: 1;
+    width: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+}
+
+.wide_image {
+    flex: 1;
+    display: flex;
+    width: 100%;
+}
+
+.galerie_breit {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    display: block;
+}
+/* Bilder 2 kleinen */
+/*SO UMBAUEN, DASS DIE KLEINEN BILDER OBEN QUADRATISCHE RAHMEN HABEN UDN DIE ABSTÄNDE PASSEN */
+
+
+
+/* Bild gross unten */
+
+
+
+/* Section Features*/
+
+.features_layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.features_screens {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 100%;
+    margin: 0;
+}
+
+.features_screens img {
+    flex-grow: 1; 
+	flex-shrink: 1;
+	flex-basis: 0;																									/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex-basis*/
+    min-width: 0;
+    width: 0;
+    aspect-ratio: 1 / 1;																							/*Seiten Verhältnis 1:1 quadratsich -> https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/aspect-ratio*/
+    object-fit: cover;
+}
+
+.features_cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.features_cta p {
+	margin-top: 0;
+	color: var(--cta-farbe);
+}
+
+.features_cta_bild {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!! Muss noch durch den Narrator Frame Tablet ersetzt werden!!!! Section Trailer */
+
+.cta-text {																											/*Ausnahme Farbe weil CTA - call to action*/
+	color: var(--cta-farbe);
+}
+
+.trailer_rahmen {
+    display: flex;
+    align-items: center;
+    gap: var(--abstand-klein);
+    max-width: 1000px;
+    margin: var(--abstand-normal) auto 0;
+    border-radius: var(--abrundung);
+    padding: 1.5rem;
+    box-shadow: var(--boxschatten);
+}
+
+.tv_bildschirm {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    background-color: var(--hintergrundfarbe);
+    border-radius: 32px;
+    padding: 1rem;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+#trailer_video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--hintergrundfarbe);
+    border-radius: 22px;
+    border: none;
+    display: block;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+/*Button*/
+
+.trailer_play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);																					/*Genau in der Mitte des Bildschirms zentriert*/
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--schriftart-button);
+    font-size: var(--button-groesse);
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: var(--abrundung);
+    padding: 0.9rem 2rem;
+    background-color: var(--button-trailer);
+    color: var(--button-trailer-schrift);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.trailer_play::before {																								/*Pseudoklasse ::before -> Füge etwas das Symbol Play Pfeil VOR den normalen Inhalt des Buttons ein*/
+    content: "▶";
+    font-size: 1.2em;
+}
+
+/* Section Bewertungen */
+
+.bewertungen_grid {																									/*Die beiden articel Elemente werden nebeneinander angeordnet*/
+    display: flex;
+    flex-direction: row;
+    gap: var(--abstand-normal);
+	max-width: 1000px;
+}
+
+.bewertung {
+    flex: 1 1 0;																									/*Die beiden Bewertungen teilen sich den Platz gleichmässig*/
+    padding: var(--abstand-normal);
+    background-color: var(--schoko-farbe); 
+    border-radius: var(--abrundung);
+}
+
+.bewertung_sterne {
+    color: var(--luzz-yellow-farbe);
+    font-size: 1.2rem;
+}
+
+.bewertung_sterne::before {
+    content: "★★★★★";
+}
+
+.bewertung_text {
+	font-style: italic;
+	color: var(--schriftfarbe);
+    margin: var(--abstand-klein) 0;
+}
+
+
+.bewertung_person {
+    font-family: var(--schriftart-button);
+    font-size: var(--footer-groesse);
+    color: var(--schriftfarbe);
+    margin: 0;
+}
+
+.bewertung_person small {
+    color: var(--navigationsfarbe);
+    opacity: 0.8;
+}
+
+/* CTA Abschluss ???????????? Bild abgeschnitten - bitte prüfen und korrigieren*/
+
+.cta_abschluss {
+    text-align: center;
+}
+
+.hut_frame {
+    position: relative;
+    max-width: 90%;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    object-fit: contain;
+    border-radius: var(--abrundung);
+}
+
+.hut_frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.hut_inhalt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    text-align: center;
+}
+
+.hut_inhalt h3 {
+    margin: 0;
+}
+
+.cta-text {
+    color: var(--cta-farbe);
+}
+
+.button_primary {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift);
+    border-radius: var(--abrundung);
+    font-family: var(--schriftart-button);
+    text-decoration: none;
+}
+
+/* Footer - teilweise Analog Navi Leiste*/
+
+.seitenfuss {
+    background-color: var(--footerfarbe);
+    color: var(--footer-schriftfarbe);
+    padding: var(--abstand-gross) 2rem var(--abstand-klein);
+}
+
+.fuss_spalten {
+    display: flex;
+    flex-direction: row;
+    gap: var(--abstand-normal);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Navigation, Credits, Legal, sollten sich gleichmässig verteilen*/
+.fuss_block {
+    flex: 1 1 0;
+}
+
+.fuss_block h3 {
+    font-family: var(--schriftart-button);
+    font-size: var(--footer-groesse);
+    letter-spacing: 1.5px;
+    color: var(--schoko-farbe);
+    margin-bottom: 0.8rem;
+}
+
+.fuss_block p,
+.fuss_block a {
+    font-family: var(--schriftart-text);
+    font-size: var(--footer-groesse);
+    line-height: 1.6;
+    color: var(--footer-schriftfarbe);
+    text-decoration: none;
+}
+
+.fuss_block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fuss_block li {
+    margin-bottom: 0.5rem;
+}
+
+
+
+.fuss_link_akzent {
+    color: var(--h1-farbe) !important;
+}
+
+.fuss_social {
+    display: flex;
+    gap: var(--abstand-klein);
+}
+
+.fuss_social img {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.fuss_copyright {
+    max-width: 1100px;
+    margin: var(--abstand-klein) auto 0;
+    padding: var(--abstand-klein) 0 0;
+    text-align: center;
+    border-top: 1px solid var(--schoko-hell-farbe);
+    font-size: var(--footer-groesse);
+    color: var(--schoko-hell-farbe);
+}
+
+/* Pfeil nach oben Knopf*/
+
+.nach_oben {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift);
+    text-decoration: none;
+}
+
+/* ERGÄNZUGEN VON PHILIPP */
+.schoko_frame {
+    border: 8px solid var(--schoko-hell-farbe);
+    border-radius: 10px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .button_primary:hover,
+    .button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
+    .button_secondary:hover,
+    .button_secondary:focus-visible,
+    .trailer_play:hover,
+    .trailer_play:focus-visible {
+        background-color: var(--button-spielen-hover_1);
+        color: var(--button-spielen-hover-schrift);
+    }
+
+        .Navlinks a:hover {
+        color: var(--h1-farbe);                         
+    }
+
+        .nav_cta:hover {
+        background-color: var(--stecker-cyan-farbe);   
+        color: var(--button-spielen-hover-schrift) !important;
+    }
+
+        .fuss_block a:hover {
+        color: var(--h1-farbe);
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .button_primary:active,
+    .button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
+    .button_secondary:active,
+    .button_secondary:focus-visible,
+    .trailer_play:active,
+    .trailer_play:focus-visible {
+        background-color: var(--button-spielen-hover_1);
+        color: var(--button-spielen-hover-schrift);
+        transform: scale(0.97);
+    }
+    
+        .Navlinks a:active {
+        color: var(--h1-farbe);
+        transform: scale(0.97);                             }
+    
+        .nav_cta:active {
+        background-color: var(--stecker-cyan-farbe);   
+        color: var(--button-spielen-hover-schrift) !important;
+        transform: scale(0.97);
+    }
+    
+        .fuss_block a:active {
+        color: var(--h1-farbe);
+        transform: scale(0.97);
+    }
+}
+
+
+
+/* Fragen, offene Punkte, Bitte um Korrektur */
+
+/*Gründsetzlich bitte einmal einen HTML / CSS Check durchführen, Anpassungen vornehmen, korrigieren, usw.*/
+
+/*Barierefreieheit - was ist das? Es steht im HTML drin - brauchen wir das? Wenn ja kannst du das bitte in CSS einbauen?*/
+
+/*Bilder werden leider teilweise abgeschnitten - cover / contain beretis ausgetauscht ausprobiert - es hat leider nicht funktioniert - bitte korrigieren
+BITTE NÄHERE ERLÄUTERUNG WELCHE UND WO*/
+
+/*Bitte die großen des Bilder in CSS prüfen, evtl. berechnen, anpassen, damit richtig dargestellt
+MACH ICH NACH KLÄRUNG BILDER ABSCHNEIDEN*/
+
+/*im Hero kommt kein Video sondern ein img rein HTML: 31-37 - das Cover Bild - bitte in HTML und CSS anpassen - ich habe es nicht mehr geschafft aus zetilichen Gründen
+ERLEDIGT - VIDEO DURCH IMAGE ERSETZT*/
+
+/*Narrator ergänzen - evtl. die HTML / CSS Angaben zum <aside> .sticky_aside anpassen*/
+
+/*Um alle Elemente wie Bild, Video, trailer, 
+.spotlight_bild,
+.galerie_grid img,
+.features_screens img,
+.features_cta_bild,
+.hut_frame
+usw.
+hätten wir gerne einen Schokoframe: gemeinsame Basis für alle Rahmen/Flächen - dieser liegt bereits da -> url("./medien/bilder/schokoframe.svg") die Farbe ist background-color: var(--schoko-hell-farbe), border: 8px solid
+	border-radius: 10px - kannst du das bitte in CSS ergänzen - bei meinem Versuch ist mir das ganze Flex logik und Bilder CSS Enstellung zerschossen
+
+ERLEDIGT
+*/
+
+/*VIELEN DANK*/
+
