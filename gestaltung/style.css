@@ -262,17 +262,6 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     color: var(--button-details-schrift);
 }
 
-.button_primary:hover,
-.button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
-.button_secondary:hover,
-.button_secondary:focus-visible,
-.trailer_play:hover,
-.trailer_play:focus-visible {
-    background-color: var(--button-spielen-hover_1);
-    color: var(--button-spielen-hover-schrift);
-}
-
-
 /* Navigationsleiste - Einstellung für den ganzen Container <nav id="Navleiste"> - Gilt für die gesamte Navigationsleiste */
 
 #Navleiste {
@@ -286,16 +275,65 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     top: 0;
     left: 0;
     right: 0;
-    z-index: 20;                                    													/* Navbar liegt über anderen Elementen - mi zaruci ze sa dropdown neschova za obrazok figure ale ze to bude pred obrazkom zobrazene - ako take vrstvy si to mozem predstavit ako funkcia ANORDNEN - co bude na vrchu co naspodu*/ 
+    z-index: 20;             
+    height: 4rem;                       													/* Navbar liegt über anderen Elementen - mi zaruci ze sa dropdown neschova za obrazok figure ale ze to bude pred obrazkom zobrazene - ako take vrstvy si to mozem predstavit ako funkcia ANORDNEN - co bude na vrchu co naspodu*/ 
     padding: 1rem 2rem;                             													/* oben/unten 1rem, links/rechts 2rem */
     background-color: var(--navigationsfarbe);     
 }
 
+/* Tablet Query*/
+@media (max-width: 1024px) {
+    #Navleiste {
+        padding: 12px 20px;        
+    }
+    #Menueicon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+        width: 44px;
+        height: 44px;
+        z-index: 1100;
+        transition: transform 0.2s ease;
+    }
+    #Navlinks {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 80vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 24px 40px;
+    gap: 20px;
+    z-index: 1050;
+    /* transform: translate(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
+    }
+    #Navlinks.offen {
+        transform: translateX(0);
+    }
+    #Navlinks a {
+        display:block;
+    }
+
+    .usk_badge {
+        margin-top: 10px;
+    }
+
+    .nav_cta {
+        width: 100%;
+    }
+}
 
 /* LOGO Gilt nur für das Logo */
 
 #Logo img {
-    height: 2.5rem;                                 													/* Höhe des Logos */
+    height: 5.5rem;                                 													/* Höhe des Logos */
     width: auto;                                    													/* Breite passt sich automatisch an */
     display: block;
 }
@@ -318,34 +356,26 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     letter-spacing: 0.3px;                         														/* Abstand zwischen Buchstaben */
 }
 
-.Navlinks a:hover {
-    color: var(--h1-farbe);                         
-}
-
 
 /* CTA Button „Jetzt spielen“ in der Navigation */
 
 .Navlinks .nav_cta {
     font-family: var(--schriftart-button);
     background-color: var(--button-spielen);        
-    color: var(--button-spielen-schrift) !important;													/*Beim CTA gilt ZWINGEND meine Button-Farbe – nicht die allgemeine Link-Farbe.*/
-    padding: 0.5rem 1.2rem;                         
+    color: var(--button-spielen-schrift) !important;	
+    min-width: 8rem;												/*Beim CTA gilt ZWINGEND meine Button-Farbe – nicht die allgemeine Link-Farbe.*/
+    padding: 0.5rem 1.2rem;             
+    margin-left: 2rem;           
     border-radius: var(--abrundung);                
     text-align: center;
 }
-
-.nav_cta:hover {
-    background-color: var(--stecker-cyan-farbe);   
-    color: var(--button-spielen-hover-schrift) !important;
-}
-
 
 /* USK img Größe des USK-Symbols */
 
 .usk_badge {
     margin-left: auto;                              													/* schiebt das USK-Symbol nach rechts */
     width: 2rem;                                    													
-    height: 2rem;                                   														
+    height: auto;                                   														
     flex-shrink: 0;                                 													/* verhindert Verkleinerung: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-shrink - mache es bei der browser size änderung nicht kleiner Wenn auf einem kleinen Bildschirm zu wenig Platz vorhanden ist, könnte der Flex-Container versuchen, das Badge kleiner zu machen. */
 }
 
@@ -363,14 +393,14 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 	padding-bottom: clamp(1.5rem, 4vw, 3rem);															/*Der Abstand unter dem Hero passt sich automatisch an die Bildschirmbreite an.clamp(MINIMUM, FLEXIBLER WERT, MAXIMUM)*/
 }
 
-#video_header {
+#image_header {
 	position: absolute;
 	inset: 0;																							/*inset= top, richt, bottom, left in einem. Setze den Video-Container an alle vier Kanten seines übergeordneten Elements.*/
 	z-index: 0;
 }
 
-#hero_video {
-	width: 100%;
+#hero_image {
+	width: 100vw;
 	height: 100%;
 	object-fit: cover;
 }
@@ -497,7 +527,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 .galerie_gross {																								/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex*/
     flex-grow: 1.4;																								/*Pomer 1.4:2 medzi lavou a pravou stranou. 1.4 dielika k 2 dielikom => 1.4 bekommt galerie groß und 2 bekommt galerie rechts. Wie viel darf es wachsen ->Das große Bild links bekommt 1,4 Teil von PArent und rechts teil in dem die 3 Bilder drin sind bekommt 2 teile des Parents 1,4:2 -> Veľký obrázok vlavo dostane 1,4 dielu a pravá časť 2 diely dostupného priestoru.*/
 	flex-shrink: 1;																								/*wie stark das Element schrumpfen darf, wenn nicht genügend Platz vorhanden ist*/
-	flex-basis: 0;																								/*die Ausgangsgröße, von der Flexbox bei der Verteilung ausgeht /*Určuje, akú veľkosť má prvok dostať ešte predtým, ako Flexbox začne rozdeľovať voľné miesto. začínaj s veľkosťou 0 a rozdeľ priestor podľa pomeru*/*/
+	flex-basis: 0;																								/*die Ausgangsgröße, von der Flexbox bei der Verteilung ausgeht Určuje, akú veľkosť má prvok dostať ešte predtým, ako Flexbox začne rozdeľovať voľné miesto. začínaj s veľkosťou 0 a rozdeľ priestor podľa pomeru*/
 	min-width: 0;																								/*Mozes sa zmesnit az na 0 ak to flex potrebuje*/
     width: 100%;
     height: 100%;
@@ -803,9 +833,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     margin-bottom: 0.5rem;
 }
 
-.fuss_block a:hover {
-    color: var(--h1-farbe);
-}
+
 
 .fuss_link_akzent {
     color: var(--h1-farbe) !important;
@@ -848,7 +876,64 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     text-decoration: none;
 }
 
+/* ERGÄNZUGEN VON PHILIPP */
+.schoko_frame {
+    border: 1px solid var(--schoko-hell-farbe);
+    border-radius: 10px;
+}
 
+@media (hover: hover) and (pointer: fine) {
+    .button_primary:hover,
+    .button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
+    .button_secondary:hover,
+    .button_secondary:focus-visible,
+    .trailer_play:hover,
+    .trailer_play:focus-visible {
+        background-color: var(--button-spielen-hover_1);
+        color: var(--button-spielen-hover-schrift);
+    }
+
+        .Navlinks a:hover {
+        color: var(--h1-farbe);                         
+    }
+
+        .nav_cta:hover {
+        background-color: var(--stecker-cyan-farbe);   
+        color: var(--button-spielen-hover-schrift) !important;
+    }
+
+        .fuss_block a:hover {
+        color: var(--h1-farbe);
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .button_primary:active,
+    .button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
+    .button_secondary:active,
+    .button_secondary:focus-visible,
+    .trailer_play:active,
+    .trailer_play:focus-visible {
+        background-color: var(--button-spielen-hover_1);
+        color: var(--button-spielen-hover-schrift);
+        transform: scale(0.97);
+    }
+    
+        .Navlinks a:active {
+        color: var(--h1-farbe);
+        transform: scale(0.97);                             }
+    
+        .nav_cta:active {
+        background-color: var(--stecker-cyan-farbe);   
+        color: var(--button-spielen-hover-schrift) !important;
+        transform: scale(0.97);
+    }
+    
+        .fuss_block a:active {
+        color: var(--h1-farbe);
+        transform: scale(0.97);
+    }
+}
 
 
 
@@ -858,11 +943,14 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 /*Barierefreieheit - was ist das? Es steht im HTML drin - brauchen wir das? Wenn ja kannst du das bitte in CSS einbauen?*/
 
-/*Bilder werden leider teilweise abgeschnitten - cover / contain beretis ausgetauscht ausprobiert - es hat leider nicht funktioniert - bitte korrigieren*/
+/*Bilder werden leider teilweise abgeschnitten - cover / contain beretis ausgetauscht ausprobiert - es hat leider nicht funktioniert - bitte korrigieren
+BITTE NÄHERE ERLÄUTERUNG WELCHE UND WO*/
 
-/*Bitte die großen des Bilder in CSS prüfen, evtl. berechnen, anpassen, damit richtig dargestellt*/
+/*Bitte die großen des Bilder in CSS prüfen, evtl. berechnen, anpassen, damit richtig dargestellt
+MACH ICH NACH KLÄRUNG BILDER ABSCHNEIDEN*/
 
-/*im Hero kommt kein Video sondern ein img rein HTML: 31-37 - das Cover Bild - bitte in HTML und CSS anpassen - ich habe es nicht mehr geschafft aus zetilichen Gründen*/
+/*im Hero kommt kein Video sondern ein img rein HTML: 31-37 - das Cover Bild - bitte in HTML und CSS anpassen - ich habe es nicht mehr geschafft aus zetilichen Gründen
+ERLEDIGT - VIDEO DURCH IMAGE ERSETZT*/
 
 /*Narrator ergänzen - evtl. die HTML / CSS Angaben zum <aside> .sticky_aside anpassen*/
 
@@ -875,6 +963,8 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 usw.
 hätten wir gerne einen Schokoframe: gemeinsame Basis für alle Rahmen/Flächen - dieser liegt bereits da -> url("./medien/bilder/schokoframe.svg") die Farbe ist background-color: var(--schoko-hell-farbe), border: 8px solid
 	border-radius: 10px - kannst du das bitte in CSS ergänzen - bei meinem Versuch ist mir das ganze Flex logik und Bilder CSS Enstellung zerschossen
+
+ERLEDIGT GLAUBE ICH WEGEN FARBE UND GRÖẞE NACHFRAGEN
 */
 
 /*VIELEN DANK*/
