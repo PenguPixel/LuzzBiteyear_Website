@@ -893,6 +893,11 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     }
 }
 
+/* Farbe der Links anpassen wenn man in den zugehörigen Bereich gescrollt hat*/
+.Navlinks a.active {
+    color: var(--h1-farbe);
+}
+
 
 
 /* Fragen, offene Punkte, Bitte um Korrektur */

@@ -1,5 +1,6 @@
 import { Narrator } from "./Narrator.js";
 import { setupSectionObserver } from "./IntersectionObserver.js";
+import { setupScrollObserver } from "./ScrollObserver.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const narrator = new Narrator({
@@ -15,5 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
     onTrigger: (message, pose) => {
       narrator.speak(message, pose);
     }
+  });
+
+  setupScrollObserver({
+    sectionSelector: "section[id]",
+    navLinksSelector: "#Navlinks a, .Navlinks a",
+    activeClass: "active",
+    rootMargin: "-25% 0px -55% 0px"
   });
 });
