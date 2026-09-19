@@ -389,7 +389,7 @@ p {																										/*max-width: 65ch â†’ begrenzt die Breite von FlieÃ
     display: flex;
     flex-direction: row;
     gap: var(--abstand-normal);
-    width: 90vw;
+    width: 70vw;
     margin: 0 auto;
 }
 
@@ -399,7 +399,7 @@ p {																										/*max-width: 65ch â†’ begrenzt die Breite von FlieÃ
 }
 
 .sticky_aside {                /*?????????wenn JavaScript Narrator programmiert ausblenden?????????????*/
-    flex: 0 0 10vw;
+    flex: 0 0 30vw;
 }
 
 /* Sections, allgemeine Enstellung */
