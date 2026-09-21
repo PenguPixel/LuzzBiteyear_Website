@@ -354,7 +354,11 @@ p {																										/*max-width: 65ch â†’ begrenzt die Breite von FlieÃ
 #hero {
 	position: relative;
 	width: 100%;
+<<<<<<< Updated upstream
 	height: 100vh;
+=======
+    height: 80vh;
+>>>>>>> Stashed changes
 	overflow: hidden;
 	display: flex;
 	align-items: flex-end;
