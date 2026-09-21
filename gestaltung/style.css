@@ -389,7 +389,7 @@ p {																										/*max-width: 65ch ‚Üí begrenzt die Breite von Flie√
     display: flex;
     flex-direction: row;
     gap: var(--abstand-normal);
-    width: 90vw;
+    width: 70vw;
     margin: 0 auto;
 }
 
@@ -399,7 +399,7 @@ p {																										/*max-width: 65ch ‚Üí begrenzt die Breite von Flie√
 }
 
 .sticky_aside {                /*?????????wenn JavaScript Narrator programmiert ausblenden?????????????*/
-    flex: 0 0 10vw;
+    flex: 0 0 30vw;
 }
 
 /* Sections, allgemeine Enstellung */
@@ -891,6 +891,11 @@ p {																										/*max-width: 65ch ‚Üí begrenzt die Breite von Flie√
         color: var(--h1-farbe);
         transform: scale(0.97);
     }
+}
+
+/* Farbe der Links anpassen wenn man in den zugeh√∂rigen Bereich gescrollt hat*/
+.Navlinks a.active {
+    color: var(--h1-farbe);
 }
 
 

@@ -6,6 +6,9 @@
 		<title>Luzz Biteyear – Mission to Infinity</title>
 		<link rel="icon" href="./medien/bilder/logo_luzz.png" type="image/png" />
 		<link rel="stylesheet" href="./gestaltung/style.css" />
+
+		<!--Separates Stylesheet für Narrator-->
+		<link rel="stylesheet" href="./gestaltung/narrator.css" />
 	</head>
 	<body>
 		<a class="skip_link" href="#hauptinhalt">Zum Inhalt springen</a>
@@ -41,7 +44,7 @@
 
 		<main id="hauptinhalt" class="seiten_raster">
 			<div class="inhalt">
-			<section class="section section_dunkel" id="story">
+			<section class="section section_dunkel" id="story" data-narrator-msg="Narrator Message für Story Section!" data-narrator-pose="idle">
 				<p class="eyebrow">Story</p>
 				<h2>Eine Landung mit Folgen</h2>
 				<h3>Planlos geht der Plan los...</h3>
@@ -76,7 +79,7 @@
 				</div>
 			</section>
 
-			<section class="section section_dunkel" id="galerie">
+			<section class="section section_dunkel" id="galerie" data-narrator-msg="Narrator für Galerie Section" data-narrator-pose="happy">
 				<p class="eyebrow">Galerie</p>
 				<h2>Game Concept: Wilder Westen in Space</h2>
 				<h3>Willkommen im Red Rock Canyon</h3>
@@ -98,7 +101,7 @@
 				</figure>
 			</section>
 
-			<section class="section section_dunkel" id="features">
+			<section class="section section_dunkel" id="features" data-narrator-msg="Text für Section Game Highlights!" data-narrator-pose="idle">
 				<p class="eyebrow">Features</p>
 				<h2>Game Highlights</h2>
 
@@ -125,7 +128,7 @@
 				</div>
 			</section>
 
-			<section class="section section_dunkel" id="trailer">
+			<section class="section section_dunkel" id="trailer" data-narrator-msg="Message für Trailer Section!" data-narrator-pose="smirk">
 				<p class="eyebrow">Trailer</p>
 				<h2 class="cta-text">Tauche jetzt mit uns in die Weiten der Unendlichkeit ein</h2>
 
@@ -148,7 +151,7 @@
 				</figure>
 			</section>
 
-			<section class="section section_dunkel" id="bewertungen">
+			<section class="section section_dunkel" id="bewertungen" data-narrator-msg="Narrator Message für Bewertungen Section!" data-narrator-pose="happy">
 				<p class="eyebrow">Bewertungen</p>
 				<h2>Was andere sagen</h2>
 
@@ -180,7 +183,7 @@
 			</section>
 
 
-			<section class="section cta_abschluss">
+			<section class="section cta_abschluss" data-narrator-msg="Narrator MEssage für Abschluss Section!" data-narrator-pose="smirk">
 				<figure class="hut_frame">
 					<img class="schoko_frame" src="./medien/bilder/luzz_hut.jpg" alt="Luzz Biteyear mit gefundenem Cowboyhut" />
 					<div class="hut_inhalt">
@@ -202,9 +205,21 @@
 
 			</div>
 
-			<aside class="sticky_aside" aria-hidden="true">
-				<p class="sticky_aside_hinweis">Narrator</p>
+			<aside id="narrator-widget" class="narrator-widget" aria-live="polite" aria-label="Narrator Nachricht">
+				<div class="narrator-card">
+
+					<img id="narrator-avatar"
+						class="narrator-image"
+						src="./scripts/assets/narrator_idle.webp"
+						alt="Narrator Figur" />
+
+					<div class="narrator-screen">
+						<p id="narrator-display-text" class="narrator-screen-text">...</p>
+					</div>
+				</div>
 			</aside>
+
+			<script type="module" src="./scripts/Main.js"></script>
 		</main>
 
 		<footer class="seitenfuss">
@@ -247,7 +262,5 @@
 		</footer>
 
 		<a href="#" id="nach_oben" class="nach_oben" aria-label="Nach oben scrollen">↑</a>
-
-		<script src="./funktion/luzzBiteyear.js"></script>
 	</body>
 </html>
