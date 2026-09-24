@@ -1,19 +1,20 @@
 /* Luzz Biteyear – style.css Desktop: Marianna Batkova
-				- style.css Tablet/Mobile Media Queries: 
+				- style.css Tablet/Mobile Media Queries: Jennifer Mohr
 
 				JavaScript Narrator: Philipp Locher
+				JavaScript Scrollobserver: Philipp Locher
 				CSS Supervision: Philipp Locher
 
-   Farb- und Schriftwerte aus: Website_Layout_Farben_Typo.pdf (Autor: Marianna Batkova, Jennifer Mohr), Typografie_Webdesign_LuzzBiteyear.pdf (Autor des Dokumentes: Jennifer Mohr)
-   
+   Farb- und Schriftwerte aus: Website_Layout_Farben_Typo.pdf (Autor: Marianna Batkova, Jennifer Mohr), Typografie_Webdesign_LuzzBiteyear.pdf (Autor des Dokumentes: Marianna Botkova & Jennifer Mohr)
+
    Struktur (Nav/Header/Footer-Aufbau, Sidebar-/Accordion-Nav, Icon-Font-Pattern) teilweise Analog /teilweise übernommen und angepasst aus dem
    Heimische-Helden-Referenzprojekt.
-   
+
    Farbkorrektur (Absprache Marianna Batkova & Jennifer Mohr): Navigationsleiste + Footer = Parchment, Seitenhintergrund bleibt Deep Canyon.
-   
+
 	Quellen: https://wiki.selfhtml.org/wiki/SELFHTML
-	
-			https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png   
+
+			https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png
 			Zur Berechnung und Überprüfung der technischen Werte, wie z. B. width, height, fr, usw., wurde KI als Unterstützung verwendet.
 */
 
@@ -50,7 +51,7 @@
     --button-spielen: #B83C1A;                  /* Canyon Red */
     --button-spielen-schrift: #F0E0BC;          /* Parchment */
 
-  
+
     /* „Mehr Details“ */
     --button-details: #F0E0BC;                  /* Parchment */
     --button-details-schrift: #B83C1A;          /* Canyon Red */
@@ -75,7 +76,7 @@
 
 
     /* TYPOGRAFIE */
-	
+
   /* Grundschriftgröße */
     --schriftgroesse: 16px;
 
@@ -88,7 +89,7 @@
     --copy-groesse: 1rem;
     --button-groesse: 1rem;
     --footer-groesse: 0.8rem;
-	
+
 	/* Schriftarten */
 	--schriftart-h1: "Rye", serif;
 	--schriftart-h2: "Rye", serif;
@@ -151,9 +152,6 @@
 }
 
 html {
-
-	/*font-family: var(--schriftart-text); ÜBERALL erstmal diese var...???
-	font-size: var(--schriftgroesse);*/
 	scroll-behavior: smooth ;
 }
 
@@ -169,29 +167,23 @@ body {
 	font-size: var(--copy-groesse);
 	background-color: var(--hintergrundfarbe);
 	color: var(--schriftfarbe);
-	line-height: 1.6 ; 																			
+	line-height: 1.6 ;
 }
 
-#Menueicon {																
+#Menueicon {
     font-size: 2rem;
     color: var(--navigations-schriftfarbe);																/*Gestaltung des Burger-Menüs (☰) für die mobile Ansicht, z. B. Größe und Farbe.*/
 }
 
-#Menueicon {																							/*!!!Burger Menü in Desktop/Tablet Version auschalten - in media Querie einschalten!!!!*/
+#Menueicon {																							/*Burger Menü in Desktop/Tablet Version aus – wird im Media Query für Mobil eingeschaltet*/
     display: none;
 }
 
-																						/*!!!!Vergiss nicht das Burger MEnü im MEdia Query für mobile einzuschalten!!!
-																						@media (max-width: 768px) {
-																						
-																							#Menueicon {
-																								display: block;
-																							}
-																						
-																						} */
-
-.skip_link {
-	display: none; 
+/* Tablet-Griff für die Sidebar-Navigation (Mohr): standardmäßig aus, nur im
+   Tablet-Query unten sichtbar. Ursprünglich aus dem Heimische-Helden-
+   Referenzprojekt übernommen. */
+.nav_griff {
+    display: none;
 }
 
 .eyebrow {																								/*Einstellung für Story, Galerie...*/
@@ -200,7 +192,7 @@ body {
 	font-variant-caps: small-caps;           															/* kleine Großbuchstaben */
     letter-spacing: 2px;																				/* Abstand zwischen Buchstaben */
     color: var(--eyebrow-farbe);
-    margin: 0 0 0.5rem;																					/* Abstand nach unten */													
+    margin: 0 0 0.5rem;																					/* Abstand nach unten */
 }
 
 /* Überschriften und Fließtext */
@@ -267,44 +259,48 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 #Navleiste {
     display: flex;                                  													/* Navigation flexibel anordnen */
     flex-direction: row;                            													/* Elemente nebeneinander */
-    justify-content: flex-start;                    													/* Elemente beginnen links - chcem aby mi tlacitka sa zacali ukladat zlava od zaciatku */
+    justify-content: flex-start;                    													/* Elemente beginnen links */
     align-items: center;                            													/* Elemente vertikal mittig ausrichten */
     gap: 3rem;                                      													/* Abstand zwischen den Elementen */
 
-    position: sticky;                              														 
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 20;             
-    height: 4rem;                       													/* Navbar liegt über anderen Elementen - mi zaruci ze sa dropdown neschova za obrazok figure ale ze to bude pred obrazkom zobrazene - ako take vrstvy si to mozem predstavit ako funkcia ANORDNEN - co bude na vrchu co naspodu*/ 
+    z-index: 20;
+    height: 4rem;
     padding: 1rem 2rem;                             													/* oben/unten 1rem, links/rechts 2rem */
-    background-color: var(--navigationsfarbe);     
+    background-color: var(--navigationsfarbe);
 }
 
 
 /* LOGO Gilt nur für das Logo */
 
+#Logo {
+    margin-top: 0.2rem;                              													/* rückt nur das Logo etwas nach unten, Rest der Navileiste bleibt vertikal mittig */
+}
+
 #Logo img {
-    height: 5.5rem;                                 													/* Höhe des Logos */
+    height: 3.75rem;                                													/* Höhe des Logos */
     width: auto;                                    													/* Breite passt sich automatisch an */
     display: block;
 }
 
 
-/* NAavlinks - Gilt für die einzelnen Links im Menü - Container <div id="Navlinks" class="Navlinks"> */
+/* Navlinks - Gilt für die einzelnen Links im Menü - Container <div id="Navlinks" class="Navlinks"> */
 
 .Navlinks {
-    display: flex;                                  
+    display: flex;
     align-items: center;                            													/* Links vertikal mittig */
     gap: 1.8rem;                                    													/* Abstand zwischen den Links */
-    flex: 1;                              																/* nimmt den verfügbaren Platz ein, damit das schön eingeordnet ist - den platz zwischen Logo und dem 12 USK */
+    flex: 1;                              																/* nimmt den verfügbaren Platz ein */
 }
 
 .Navlinks a {
-    font-family: var(--schriftart-button);            
-    font-size: var(--button-groesse);               
-    text-decoration: none;                          
-    color: var(--navigations-schriftfarbe);        
+    font-family: var(--schriftart-button);
+    font-size: var(--button-groesse);
+    text-decoration: none;
+    color: var(--navigations-schriftfarbe);
     letter-spacing: 0.3px;                         														/* Abstand zwischen Buchstaben */
 }
 
@@ -313,12 +309,12 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 .Navlinks .nav_cta {
     font-family: var(--schriftart-button);
-    background-color: var(--button-spielen);        
-    color: var(--button-spielen-schrift) !important;	
-    min-width: 8rem;												/*Beim CTA gilt ZWINGEND meine Button-Farbe – nicht die allgemeine Link-Farbe.*/
-    padding: 0.5rem 1.2rem;             
-    margin-left: 2rem;           
-    border-radius: var(--abrundung);                
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift) !important;
+    min-width: 8rem;																					/*Beim CTA gilt ZWINGEND meine Button-Farbe – nicht die allgemeine Link-Farbe.*/
+    padding: 0.5rem 1.2rem;
+    margin-left: 2rem;
+    border-radius: var(--abrundung);
     text-align: center;
 }
 
@@ -326,9 +322,9 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 .usk_badge {
     margin-left: auto;                              													/* schiebt das USK-Symbol nach rechts */
-    width: 2rem;                                    													
-    height: auto;                                   														
-    flex-shrink: 0;                                 													/* verhindert Verkleinerung: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-shrink - mache es bei der browser size änderung nicht kleiner Wenn auf einem kleinen Bildschirm zu wenig Platz vorhanden ist, könnte der Flex-Container versuchen, das Badge kleiner zu machen. */
+    width: 2rem;
+    height: auto;
+    flex-shrink: 0;                                 													/* verhindert Verkleinerung */
 }
 
 /* Header Hero */
@@ -336,18 +332,18 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 #hero {
 	position: relative;
 	width: 100%;
-    height: 70vh;
+	height: 80vh;
 	overflow: hidden;
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
 	text-align: center;
-	padding-bottom: clamp(1.5rem, 4vw, 3rem);															/*Der Abstand unter dem Hero passt sich automatisch an die Bildschirmbreite an.clamp(MINIMUM, FLEXIBLER WERT, MAXIMUM)*/
+	padding-bottom: clamp(1.5rem, 4vw, 3rem);															/*clamp(MINIMUM, FLEXIBLER WERT, MAXIMUM)*/
 }
 
 #image_header {
 	position: absolute;
-	inset: 0;																							/*inset= top, richt, bottom, left in einem. Setze den Video-Container an alle vier Kanten seines übergeordneten Elements.*/
+	inset: 0;																							/*inset = top, right, bottom, left in einem*/
 	z-index: 0;
 }
 
@@ -357,7 +353,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 	object-fit: cover;
 }
 
-#hero::before {																							/*Setze eine abgedunkelte Fläche vor dem Hero mit 55% Transparenz - es wirkt so matt und dunkelt das bisschen ab das video - wie eine Folie davor -> mach dieses Pseudo-Element :: überhaupt sichtbar. Bei ::before ist das nötig! */
+#hero::before {																							/*abgedunkelte Fläche vor dem Hero*/
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -378,14 +374,9 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 }
 
 
+/* Seitenraster: Inhalt + Spalte für den Narrator */
 
-/* !!!????? Seitenraster: Inhalt + reservierte Aside-Spalte für späteres Narrator !!! Das CSS für den Narrator muss noch eingestellt werden???? */
-
-
-
-
-
-.seiten_raster {																							/*seiten_raster ist der Eltern-Container, der mit Flex die beiden Bereiche .inhalt und unten in <aside> .sticky_aside nebeneinander verteilen kann*/
+.seiten_raster {																						/*Eltern-Container für .inhalt und den Narrator-Bereich*/
     display: flex;
     flex-direction: row;
     gap: var(--abstand-normal);
@@ -398,20 +389,13 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     min-width: 0;
 }
 
-.sticky_aside {                /*?????????wenn JavaScript Narrator programmiert ausblenden?????????????*/
-    flex: 0 0 30vw;
-}
-
-/* Sections, allgemeine Enstellung */
+/* Sections, allgemeine Einstellung */
 .section {
 	max-width: 90vw;
-	margin: 0 auto;																							/*die gesamte Section horizontal zentriert*/
-	padding: 5rem 2rem;																						/*padding: oben/unten 5rem links/rechts 2rem*/
+	margin: 0 auto;																						/*die gesamte Section horizontal zentriert*/
+	padding: 5rem 2rem;																					/*padding: oben/unten 5rem links/rechts 2rem*/
 	box-sizing: border-box;
 }
-
-
-
 
 
 /*Section Rahmen, z.B. Galerie, Trailer Rahmen, usw.*/
@@ -430,35 +414,49 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-	align-content: flex-start;																				/*Richte die entstandenen Reihen als Gruppe innerhalb des Flex-Containers aus. Zhora-dolu => flex-start = am Anfang der Querachse.Da flex-direction: row => ist die Querachse vertikal*/
+	align-content: flex-start;																			/*Reihen als Gruppe am Anfang der Querachse ausrichten*/
     gap: 2rem;
     margin-top: 2rem;
 }
 
 .spotlight_bild,
-.spotlight_text {																			
-    flex-grow: 1;																							/*Das Element darf wachsen, wenn zusätzlicher Platz vorhanden ist. Ak po rozdelení zostane v riadku ešte voľné miesto, element ho môže využiť.*/
-    flex-shrink: 1;																							/*Das Element darf schrumpfen, wenn nicht genügend Platz vorhanden ist. Keď je priestoru málo, element sa môže zmenšiť, aby sa všetko zmestilo.*/
-    flex-basis: calc(50% - 1rem);																			/*Das Element startet mit ungefähr 50 % der verfügbaren Breite, abzüglich 1rem, weil zwischen den beiden Elementen ein gap von 2rem liegt:50% - 1rem | 2rem | 50% - 1rem*. Chceme, aby obrázok aj text začínali približne na:50 % šírky riadku − polovica priestoru pre gap.*/
-    min-width: 0;																							/*Das Element darf bei Bedarf bis auf 0 schrumpfen und wird nicht durch die natürliche Breite seines Inhalts daran gehindert. Element sa smie zmenšiť aj vtedy, keď má v sebe dlhý obsah.*/
+.spotlight_text {
+    flex-grow: 1;																						/*Das Element darf wachsen, wenn zusätzlicher Platz vorhanden ist.*/
+    flex-shrink: 1;																						/*Das Element darf schrumpfen, wenn nicht genügend Platz vorhanden ist.*/
+    flex-basis: calc(50% - 1rem);																		/*Start mit ca. 50 % Breite abzüglich der Hälfte des gap.*/
+    min-width: 0;																						/*Das Element darf bei Bedarf bis auf 0 schrumpfen.*/
 }
 
 .spotlight_bild img {
-    width: 100%;																							/*Das Bild nimmt die gesamte Breite des Elterns - Aby obrázok vyplnil celý priestor svojho stĺpca - svojho rodica - .spotlight_bild*/
+    width: 100%;																						/*Das Bild nimmt die gesamte Breite des Elterns.*/
+}
+
+/* Bildunterschrift (Story-Sektion): statt loser Text darunter wird sie als
+   angefügte Fußzeile direkt unters Bild gesetzt – reine Schoko-Fläche ohne
+   eigenen Rand, exakt auf Bildbreite. box-sizing: border-box am Bild sorgt
+   dafür, dass dessen Rand mit eingerechnet wird, statt die Spaltenbreite
+   zu überragen – dadurch schließt die Unterschrift bündig an. */
+.spotlight_bild img.schoko_frame {
+    box-sizing: border-box;
+    border-bottom: none;
+    border-radius: var(--abrundung) var(--abrundung) 0 0;
+}
+
+.spotlight_bild .bildunterschrift {
+    margin: 0;
+    padding: 0.6rem 1rem;
+    background-color: var(--schoko-farbe);
+    border: none;
+    border-radius: 0 0 var(--abrundung) var(--abrundung);
+    font-family: var(--schriftart-button);
+    font-size: var(--footer-groesse);
+    letter-spacing: 0.3px;
+    color: var(--schriftfarbe);
+    text-align: center;
+    max-width: none;																					/*überschreibt die globale p{max-width:65ch}, sonst passt die Breite nicht exakt zum Bild.*/
 }
 
 /* Section Galerie */
-
-.kernidee {
-	max-width: 65ch;																						/*Für bessere LEsbarkeit: Kernidee nech má maximálne príjemnú šírku na čítanie a nech má trochu priestoru nad sebou.*/
-	margin: 0.5rem 0 0;																						/*O, R, L, U ->hore, vpravo, vlavo, dolu*/
-}
-
-
-
-/*????????? Darstellung nicht wie gewünscht, Bilder abgeschnitten "cover?" - ich komme nicht darauf woran das liegt - bitte prüfen, korrigeiren*/
-
-/* Galerie */
 
 .kernidee {
     max-width: 65ch;
@@ -469,28 +467,28 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    width: 100%;																								/*übernehme 100% Breite des PArents - .section_dunkel*/
-    margin: 2rem 0 0;																							/*h, v, d -> top, right, bottom*/
-    																		/*clamp - definiert eine minimale, flexible und maximale Höhe*/
+    width: 100%;																						/*übernimmt 100 % Breite des Parents .section_dunkel*/
+    margin: 2rem 0 0;
     box-sizing: border-box;
-                                                                        }
+}
 
-/* Großes Bild links – entspricht 1.4fr fraction = podiel / časť dostupného priestoru */
+/* Großes Bild links */
 
-.galerie_gross {																								/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex*/
+.galerie_gross {
     width: 100%;
-    aspect-ratio: 1/1;																							/*die Ausgangsgröße, von der Flexbox bei der Verteilung ausgeht Určuje, akú veľkosť má prvok dostať ešte predtým, ako Flexbox začne rozdeľovať voľné miesto. začínaj s veľkosťou 0 a rozdeľ priestor podľa pomeru*/
+    aspect-ratio: 1/1;
     object-fit: cover;
     display: block;
 }
 
 .galerie_links {
-        flex:1 1 50%;
-        display: flex;
+    flex: 1 1 50%;
+    display: flex;
 }
-/* Rechte Spalte – entspricht 1fr + 1fr */
-.galerie_rechts {    
-    flex:1 1 50%;
+
+/* Rechte Spalte */
+.galerie_rechts {
+    flex: 1 1 50%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -523,13 +521,6 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     object-fit: cover;
     display: block;
 }
-/* Bilder 2 kleinen */
-/*SO UMBAUEN, DASS DIE KLEINEN BILDER OBEN QUADRATISCHE RAHMEN HABEN UDN DIE ABSTÄNDE PASSEN */
-
-
-
-/* Bild gross unten */
-
 
 
 /* Section Features*/
@@ -544,18 +535,18 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 .features_screens {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: var(--abstand-klein);																			/*von 1.5rem auf 1rem verkleinert (Absprache Mohr), damit die vier Bilder dank flex-grow etwas mehr Breite bekommen*/
     width: 100%;
     margin: 0;
 }
 
 .features_screens img {
-    flex-grow: 1; 
+    flex-grow: 1;
 	flex-shrink: 1;
-	flex-basis: 0;																									/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex-basis*/
+	flex-basis: 0;																						/*https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/flex-basis*/
     min-width: 0;
     width: 0;
-    aspect-ratio: 1 / 1;																							/*Seiten Verhältnis 1:1 quadratsich -> https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/aspect-ratio*/
+    aspect-ratio: 1 / 1;																				/*Seitenverhältnis 1:1 quadratisch*/
     object-fit: cover;
 }
 
@@ -581,9 +572,9 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 }
 
 
-/* !!!!!!!!!!!!!!!!!!! Muss noch durch den Narrator Frame Tablet ersetzt werden!!!! Section Trailer */
+/* Section Trailer */
 
-.cta-text {																											/*Ausnahme Farbe weil CTA - call to action*/
+.cta-text {																								/*Ausnahme Farbe weil CTA - call to action*/
 	color: var(--cta-farbe);
 }
 
@@ -595,7 +586,6 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     margin: var(--abstand-normal) auto 0;
     border-radius: var(--abrundung);
     padding: 1.5rem;
-    box-shadow: var(--boxschatten);
 }
 
 .tv_bildschirm {
@@ -624,7 +614,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);																					/*Genau in der Mitte des Bildschirms zentriert*/
+    transform: translate(-50%, -50%);																	/*Genau in der Mitte des Bildschirms zentriert*/
     z-index: 2;
     display: flex;
     align-items: center;
@@ -641,24 +631,29 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     transition: background-color 0.3s, color 0.3s;
 }
 
-.trailer_play::before {																								/*Pseudoklasse ::before -> Füge etwas das Symbol Play Pfeil VOR den normalen Inhalt des Buttons ein*/
+.trailer_play::before {																					/*Pseudoklasse ::before -> Play-Pfeil VOR den Buttontext*/
     content: "▶";
     font-size: 1.2em;
 }
 
-/* Section Bewertungen */
+/* Section Bewertungen
+   Umstellung Flex auf Grid (Absprache Batkova/Mohr): bei vier Karten im
+   Flex-Row wird der Text zu schmal und läuft lang untereinander. */
 
-.bewertungen_grid {																									/*Die beiden articel Elemente werden nebeneinander angeordnet*/
-    display: flex;
-    flex-direction: row;
+.bewertungen_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--abstand-normal);
-	max-width: 1000px;
+    max-width: 1000px;
+    margin: var(--abstand-normal) auto 0;
 }
 
 .bewertung {
-    flex: 1 1 0;																									/*Die beiden Bewertungen teilen sich den Platz gleichmässig*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: var(--abstand-normal);
-    background-color: var(--schoko-farbe); 
+    background-color: var(--schoko-farbe);
     border-radius: var(--abrundung);
 }
 
@@ -690,7 +685,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     opacity: 0.8;
 }
 
-/* CTA Abschluss ???????????? Bild abgeschnitten - bitte prüfen und korrigieren*/
+/* CTA Abschluss */
 
 .cta_abschluss {
     text-align: center;
@@ -698,9 +693,9 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 .hut_frame {
     position: relative;
-    max-width: 90%;
+    max-width: 45%;
     aspect-ratio: 16 / 9;
-    margin: 0;
+    margin: 0 auto;
     object-fit: contain;
     border-radius: var(--abrundung);
 }
@@ -743,7 +738,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     text-decoration: none;
 }
 
-/* Footer - teilweise Analog Navi Leiste*/
+/* Footer - teilweise Analog Navileiste*/
 
 .seitenfuss {
     background-color: var(--footerfarbe);
@@ -759,7 +754,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     margin: 0 auto;
 }
 
-/* Navigation, Credits, Legal, sollten sich gleichmässig verteilen*/
+/* Navigation, Credits, Legal sollten sich gleichmässig verteilen*/
 .fuss_block {
     flex: 1 1 0;
 }
@@ -790,8 +785,6 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 .fuss_block li {
     margin-bottom: 0.5rem;
 }
-
-
 
 .fuss_link_akzent {
     color: var(--h1-farbe) !important;
@@ -834,7 +827,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     text-decoration: none;
 }
 
-/* ERGÄNZUGEN VON PHILIPP */
+/* ERGÄNZUNGEN VON PHILIPP */
 .schoko_frame {
     border: 8px solid var(--schoko-hell-farbe);
     border-radius: 10px;
@@ -842,7 +835,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 
 @media (hover: hover) and (pointer: fine) {
     .button_primary:hover,
-    .button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
+    .button_primary:focus-visible,																		/*verändert Farbe und Schrift bei Maus-Hover oder Tastatur-Fokus*/
     .button_secondary:hover,
     .button_secondary:focus-visible,
     .trailer_play:hover,
@@ -851,23 +844,23 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
         color: var(--button-spielen-hover-schrift);
     }
 
-        .Navlinks a:hover {
-        color: var(--h1-farbe);                         
+    .Navlinks a:hover {
+        color: var(--h1-farbe);
     }
 
-        .nav_cta:hover {
-        background-color: var(--stecker-cyan-farbe);   
+    .nav_cta:hover {
+        background-color: var(--stecker-cyan-farbe);
         color: var(--button-spielen-hover-schrift) !important;
     }
 
-        .fuss_block a:hover {
+    .fuss_block a:hover {
         color: var(--h1-farbe);
     }
 }
 
 @media (hover: none) and (pointer: coarse) {
     .button_primary:active,
-    .button_primary:focus-visible,																			/*verändert Farbe und Schrift eines Buttons bei Maus-Hover oder Tastatur-Fokus (TAB, z.B.)*/
+    .button_primary:focus-visible,
     .button_secondary:active,
     .button_secondary:focus-visible,
     .trailer_play:active,
@@ -876,59 +869,430 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
         color: var(--button-spielen-hover-schrift);
         transform: scale(0.97);
     }
-    
-        .Navlinks a:active {
+
+    .Navlinks a:active {
         color: var(--h1-farbe);
-        transform: scale(0.97);                             }
-    
-        .nav_cta:active {
-        background-color: var(--stecker-cyan-farbe);   
+        transform: scale(0.97);
+    }
+
+    .nav_cta:active {
+        background-color: var(--stecker-cyan-farbe);
         color: var(--button-spielen-hover-schrift) !important;
         transform: scale(0.97);
     }
-    
-        .fuss_block a:active {
+
+    .fuss_block a:active {
         color: var(--h1-farbe);
         transform: scale(0.97);
     }
 }
 
-/* Farbe der Links anpassen wenn man in den zugehörigen Bereich gescrollt hat*/
+/* Farbe der Links anpassen, wenn man in den zugehörigen Bereich gescrollt hat*/
 .Navlinks a.active {
     color: var(--h1-farbe);
 }
 
 
+/* ===================================================================
+   MEDIA QUERIES – Tablet & Mobil
+   Autorin: Jennifer Mohr
+   Breakpoints: Tablet bis 1024px, Mobil bis 768px.
+   =================================================================== */
 
-/* Fragen, offene Punkte, Bitte um Korrektur */
+/* ---------- TABLET (bis 1024px) ---------- */
+@media (max-width: 1024px) {
 
-/*Gründsetzlich bitte einmal einen HTML / CSS Check durchführen, Anpassungen vornehmen, korrigieren, usw.*/
+    :root {
+        --h1-groesse: 2.25rem;
+        --h2-groesse: 1.75rem;
+        --h3-groesse: 1.3rem;
+    }
 
-/*Barierefreieheit - was ist das? Es steht im HTML drin - brauchen wir das? Wenn ja kannst du das bitte in CSS einbauen?*/
+    /* Inhaltsbreite von 70vw auf 90vw, sonst wird die Spalte zu schmal */
+    .seiten_raster {
+        width: 90vw;
+        gap: var(--abstand-klein);
+    }
 
-/*Bilder werden leider teilweise abgeschnitten - cover / contain beretis ausgetauscht ausprobiert - es hat leider nicht funktioniert - bitte korrigieren
-BITTE NÄHERE ERLÄUTERUNG WELCHE UND WO*/
+    .section,
+    .section_dunkel {
+        max-width: 100%;
+        padding: 3rem 1.5rem;
+    }
 
-/*Bitte die großen des Bilder in CSS prüfen, evtl. berechnen, anpassen, damit richtig dargestellt
-MACH ICH NACH KLÄRUNG BILDER ABSCHNEIDEN*/
+    #Navleiste {
+        gap: 1.5rem;
+        padding: 0.75rem 1.25rem;
+    }
 
-/*im Hero kommt kein Video sondern ein img rein HTML: 31-37 - das Cover Bild - bitte in HTML und CSS anpassen - ich habe es nicht mehr geschafft aus zetilichen Gründen
-ERLEDIGT - VIDEO DURCH IMAGE ERSETZT*/
+    #Logo img {
+        height: 3.5rem;
+    }
 
-/*Narrator ergänzen - evtl. die HTML / CSS Angaben zum <aside> .sticky_aside anpassen*/
+    .Navlinks {
+        gap: 1rem;
+    }
 
-/*Um alle Elemente wie Bild, Video, trailer, 
-.spotlight_bild,
-.galerie_grid img,
-.features_screens img,
-.features_cta_bild,
-.hut_frame
-usw.
-hätten wir gerne einen Schokoframe: gemeinsame Basis für alle Rahmen/Flächen - dieser liegt bereits da -> url("./medien/bilder/schokoframe.svg") die Farbe ist background-color: var(--schoko-hell-farbe), border: 8px solid
-	border-radius: 10px - kannst du das bitte in CSS ergänzen - bei meinem Versuch ist mir das ganze Flex logik und Bilder CSS Enstellung zerschossen
+    .Navlinks .nav_cta {
+        margin-left: 1rem;
+        min-width: auto;
+        padding: 0.45rem 0.9rem;
+    }
 
-ERLEDIGT
-*/
+    #hero {
+        height: 60vh;
+    }
 
-/*VIELEN DANK*/
+    /* Story: Bild und Text untereinander statt 50/50 */
+    .spotlight_bild,
+    .spotlight_text {
+        flex-basis: 100%;
+    }
 
+    /* Galerie: großes Bild oben, rechte Spalte darunter */
+    .galerie_grid {
+        flex-direction: column;
+    }
+
+    .galerie_gross {
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Screenshots 2x2 statt 4 nebeneinander – als Grid statt Flex, damit es
+       unabhängig von Breite/Rundung zuverlässig bei 2 Spalten bleibt.
+       row-gap/column-gap bewusst getrennt geschrieben, beide gleich groß. */
+    .features_screens {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: var(--abstand-normal);
+        column-gap: var(--abstand-normal);
+    }
+
+    .features_screens img {
+        width: 100%;
+    }
+
+    /* Abschluss-CTA: Text+Button raus aus dem Bild-Overlay, stattdessen
+       darunter im normalen Textfluss – auf Tablet/Mobil war der Text auf
+       dem Bild schwer lesbar. Deshalb wandert die feste Bildproportion vom
+       Rahmen aufs <img> selbst, sonst würde der Rahmen den nachfolgenden
+       Text abschneiden. Zielgröße: etwas größer als eine Bewertungskarte. */
+    .hut_frame {
+        max-width: 55%;
+        aspect-ratio: auto;
+    }
+
+    .hut_frame img {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .hut_inhalt {
+        position: static;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        padding: 1.5rem 1rem 0;
+    }
+
+    /* Luzz zeigt auf Button (Features-CTA): auf Tablet kleiner als die
+       Desktop-600px, sonst wirkt es im schmaleren Layout zu dominant. */
+    .features_cta_bild {
+        max-width: 320px;
+    }
+
+    .fuss_spalten {
+        flex-wrap: wrap;
+    }
+
+    .fuss_block {
+        flex: 1 1 45%;
+    }
+}
+
+/* ---------- TABLET-NAVIGATION: linke Schublade (769px–1024px) ----------
+   Wiederhergestelltes Muster aus der ursprünglichen Fassung (vor Marianna's
+   Umstellung auf die horizontale Flex-Leiste), angelehnt an das
+   Heimische-Helden-Referenzprojekt. Gilt nur für den Tablet-Bereich:
+   Desktop bleibt bei Marianna's Top-Leiste unangetastet, Mobil bleibt beim
+   Burger-Dropdown aus dem Block darunter. */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    #Navleiste {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: -10rem;
+        width: 10rem;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 1.5rem 1rem;
+        gap: 0.4rem;
+        transition: left 0.4s ease;
+    }
+
+    #Navleiste.offen {
+        left: 0;
+    }
+
+    #Logo img {
+        height: 2.25rem;
+    }
+
+    /* Etwas mehr Luft zwischen Logo und den Navigationspunkten in der
+       Sidebar, als der allgemeine #Navleiste-gap (0.4rem) hergibt. */
+    #Logo {
+        margin-bottom: 1.5rem;
+    }
+
+    .Navlinks {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+    }
+
+    .Navlinks a {
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+
+    .Navlinks .nav_cta {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: auto;
+    }
+
+    .usk_badge {
+        margin: 0.5rem 0 0;
+    }
+
+    /* Push-Menü: Der Seiteninhalt rückt beim Öffnen nach rechts, statt von
+       der Nav verdeckt zu werden – kein Abdunkeln nötig. */
+    body {
+        transition: margin-left 0.4s ease;
+    }
+
+    body.nav-offen {
+        margin-left: 10rem;
+    }
+
+    body.nav-offen .nav_griff {
+        left: 10rem;
+    }
+
+    .nav_backdrop {
+        display: none !important;
+    }
+
+    .nav_griff {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 1.7rem;
+        height: 4.5rem;
+        background-color: var(--navigationsfarbe);
+        color: var(--navigations-schriftfarbe);
+        border: none;
+        border-radius: 0 10px 10px 0;
+        font-size: 1.3rem;
+        line-height: 1;
+        z-index: 21;
+        cursor: pointer;
+        padding: 0;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+        transition: left 0.4s ease;
+    }
+}
+
+/* ---------- MOBIL (bis 768px) ---------- */
+@media (max-width: 768px) {
+
+    :root {
+        --h1-groesse: 1.75rem;
+        --h2-groesse: 1.4rem;
+        --h3-groesse: 1.15rem;
+        --copy-groesse: 0.95rem;
+    }
+
+    /* Burger-Menü einschalten (oben auf display:none gesetzt) */
+    #Menueicon {
+        display: block;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    #Navleiste {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    #Logo img {
+        height: 2.25rem;
+    }
+
+    /* Links erst sichtbar, wenn function.js die Klasse "offen" setzt */
+    .Navlinks {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+        padding: 1rem 0;
+    }
+
+    #Navleiste.offen .Navlinks {
+        display: flex;
+    }
+
+    .usk_badge {
+        margin-left: 0;
+    }
+
+    .Navlinks .nav_cta {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: auto;
+        align-self: flex-start;
+    }
+
+    /* Backdrop schließt die offene Navigation per Tap */
+    .nav_backdrop {
+        display: none;
+    }
+
+    body.nav-offen .nav_backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        background-color: rgba(26, 10, 8, 0.6);
+    }
+
+    body.nav-offen {
+        overflow: hidden;
+    }
+
+    .seiten_raster {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .section,
+    .section_dunkel {
+        padding: 2.5rem 1rem;
+    }
+
+    #hero {
+        height: 55vh;
+    }
+
+    .hero_inhalt {
+        padding: 0 1rem;
+    }
+
+    /* Schokorahmen auf kleinen Displays schmaler, sonst frisst er das Bild :-) */
+    .schoko_frame {
+        border-width: 5px;
+    }
+
+    .galerie_gross,
+    .galerie_breit {
+        aspect-ratio: 4 / 3;
+    }
+
+    .small_images {
+        flex-direction: column;
+    }
+
+    .small_images .images {
+        width: 100%;
+    }
+
+    /* Screenshots einspaltig */
+    .features_screens {
+        grid-template-columns: 1fr;
+    }
+
+    /* Bewertungen: eine Karte pro Zeile */
+    .bewertungen_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trailer_rahmen {
+        padding: 0.75rem;
+    }
+
+    .trailer_play {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .hut_frame {
+        max-width: 65%;
+        aspect-ratio: auto;
+    }
+
+    .hut_frame img {
+        height: auto;
+        aspect-ratio: 3 / 4;
+    }
+
+    .hut_inhalt {
+        padding-top: 1rem;
+    }
+
+    .fuss_spalten {
+        flex-direction: column;
+        gap: var(--abstand-klein);
+    }
+
+    /* Narrator-Widget liegt auf Mobil mit z-index 9999 unten über der
+       Seite – der Pfeil muss darüber bleiben. */
+    .nach_oben {
+        right: 1rem;
+        bottom: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        z-index: 10000;
+    }
+}
+
+/* ---------- Barrierefreiheit: Skip-Link ----------
+   Unsichtbar, aber bei Tastatur-Fokus sichtbar. */
+.skip_link {
+    display: inline-block;
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--button-spielen);
+    color: var(--button-spielen-schrift);
+    font-family: var(--schriftart-button);
+    text-decoration: none;
+}
+
+.skip_link:focus {
+    left: 0;
+}
+
+/* ---------- Reduzierte Bewegung ---------- */
+/*Mit Hilfe von KI für Barrierefreiheit:Betriebssystem-Einstellung, mit der Nutzer:innen Animationen abschalten können (wichtig für Menschen mit Schwindel/Übelkeit bei Bewegung). CSS erkennt das über @media (prefers-reduced-motion: reduce) und schaltet dann sanftes Scrollen und alle Übergänge aus.*/
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
