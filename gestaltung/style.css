@@ -1034,10 +1034,12 @@ p {																										/*max-width: 65ch â†’ begrenzt die Breite von FlieÃ
 
     #Navleiste.offen {
         left: 0;
+        height: 110vh;
     }
 
     #Logo img {
-        height: 2.25rem;
+        width: 70%;
+        height: auto;
     }
 
     /* Etwas mehr Luft zwischen Logo und den Navigationspunkten in der
