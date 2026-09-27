@@ -7,12 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     containerId: "narrator-widget",
     textElementId: "narrator-display-text",
     imageElementId: "narrator-avatar",
-    autoHideDelay: 4000 
+    autoHideDelay: 3000 
   });
 
   setupSectionObserver({
     targetSelector: "[data-narrator-msg]",
-    threshold: 0.45, 
+    threshold: 0.15, 
+    rootMargin: "0px 0px -15% 0px",
     onTrigger: (message, pose) => {
       narrator.speak(message, pose);
     }

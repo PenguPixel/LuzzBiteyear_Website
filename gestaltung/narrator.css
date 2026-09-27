@@ -86,17 +86,18 @@
 @media (max-width: 600px) {
   .narrator-widget {
     top: auto;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    transform: translateY(100%); 
+    right: 62px;
+    left: auto;
+    bottom: 12px;
+    width: auto;
+    transform-origin: bottom right;
+    transform: scale(0.55) translateY(150%); 
     display: flex;
     justify-content: center;
   }
 
   .narrator-widget.visible {
-    transform: scale(0.8) translateY(0);
+    transform: scale(0.55) translateY(0);
   }
 
   .narrator-placeholder-graphic {
@@ -112,7 +113,7 @@
   }
 
   .narrator-screen-text {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     -webkit-line-clamp: 3;
   }
 }
