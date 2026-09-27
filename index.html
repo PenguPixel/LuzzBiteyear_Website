@@ -1,3 +1,5 @@
+<!--HTML: Autorin: Jennifer Mohr-->
+<!--Philipp Locher, GME: data-narrator-msg,data-narrator-pose, Aside (Z:189-197) -->
 <!DOCTYPE html>
 <html lang="de">
 	<head>
@@ -7,7 +9,7 @@
 		<link rel="icon" href="./medien/bilder/logo_luzz.png" type="image/png" />
 		<link rel="stylesheet" href="./gestaltung/style.css" />
 
-		<!--Separates Stylesheet für Narrator-->
+		<!--Separates Stylesheet für Narrator: Philipp Locher,GME-->
 		<link rel="stylesheet" href="./gestaltung/narrator.css" />
 	</head>
 	<body>
@@ -15,7 +17,7 @@
 
 		<nav id="Navleiste">
 			<div id="Logo">
-				<a href="#"><img src="./medien/bilder/logo_luzz.png" alt="Luzz Biteyear Logo" /></a>
+				<a href="index.html"><img src="./medien/bilder/logo_luzz.png" alt="Luzz Biteyear Logo" /></a>
 			</div>
 			<div id="Menueicon" class="Icon">☰</div>
 			<div id="Navlinks" class="Navlinks">
@@ -28,12 +30,13 @@
 				<a class="nav_cta" href="https://itch.io" target="_blank" rel="noopener">Jetzt spielen</a>
 			</div>
 		</nav>
+		<!--Mit Unterstützung von Claude KI-aria-expanded-->
 		<button id="nav_griff" class="nav_griff" aria-label="Navigation ein- oder ausklappen" aria-expanded="false" aria-controls="Navleiste">›</button>
 		<div id="nav_backdrop" class="nav_backdrop"></div>
 
 		<header id="hero">
 			<div id="image_header">
-				<img id="hero_image" src="./medien/bilder/hero_cover.png" alt="Luzz und Narrator im Canyon" />
+				<img id="hero_image" src="./medien/bilder/hero_cover.png" alt="Luzz findet Cowboyhut im Canyon.Im HIntergrund das abgestützte Raumschifffrack" />
 			</div>
 
 			<div class="hero_inhalt">
@@ -45,7 +48,7 @@
 		<main id="hauptinhalt" class="seiten_raster">
 			<div class="inhalt">
 
-			<section class="section section_dunkel" id="story" data-narrator-msg="Abgestürzt, verbeult, gut gelaunt – willkommen im Canyon!" data-narrator-pose="idle">
+			<section class="section section_dunkel" id="story" data-narrator-msg="Mission geplant. Landung improvisiert!" data-narrator-pose="idle">
 				<p class="eyebrow">Story</p>
 				<h2>Eine Landung mit Folgen</h2>
 				<h3>Planlos geht der Plan los...</h3>
@@ -53,7 +56,7 @@
 
 				<div class="spotlight_grid">
 					<article class="spotlight_bild">
-						<img src="./medien/bilder/luzz_render_grosss.jpg" alt="Render von Luzz Biteyear vor dem Canyon" class="schoko_frame" />
+						<img src="./medien/bilder/1.1.grenzfigur_der_zukunft.png" alt="Bild von Luzz Biteyear winkend vor dem roten Canyon" class="schoko_frame" />
 						<p class="bildunterschrift schoko_frame">Die Grenzfigur der Zukunft</p>
 					</article>
 
@@ -73,13 +76,13 @@
 					</article>
 
 					<article class="spotlight_bild">
-						<img src="./medien/bilder/luzz_landung.jpg" alt="Luzz Biteyear bei der Landung auf dem Canyon-Planeten" class="schoko_frame" />
-						<p class="bildunterschrift schoko_frame">Landung</p>
+						<img src="./medien/bilder/1.2.landung.png" alt="Luzz Biteyear und das abgestütze Raumschifffrack" class="schoko_frame" />
+						<p class="bildunterschrift schoko_frame">Die Landung</p>
 					</article>
 				</div>
 			</section>
 
-			<section class="section section_dunkel" id="galerie" data-narrator-msg="Red Rock Canyon: viel Staub, noch mehr alte Technik." data-narrator-pose="happy">
+			<section class="section section_dunkel" id="galerie" data-narrator-msg="Stecker rein. Rätsel lösen. Weiter geht´s." data-narrator-pose="happy">
 				<p class="eyebrow">Galerie</p>
 				<h2>Game Concept: Wilder Westen in Space</h2>
 				<h3>Willkommen im Red Rock Canyon</h3>
@@ -87,21 +90,21 @@
 
 				<figure class="galerie_grid">
 					<div class="galerie_links">
-						<img class="galerie_gross schoko_frame" src="./medien/bilder/luzz_action_01.jpg" alt="Luzz Biteyear in Aktion im Canyon" />
+						<img class="galerie_gross schoko_frame" src="./medien/bilder/2.1.steckerschweif.png" alt="Bild von Luzz Biteyears Steckerschweif" />
 					</div>
 					<div class="galerie_rechts">
 						<div class="small_images">
-							<img class="images schoko_frame" src="./medien/bilder/luzz_action_02.jpg" alt="Luzz Biteyear beim Erkunden" />
-							<img class="images schoko_frame" src="./medien/bilder/luzz_action_03.jpg" alt="Luzz Biteyear im Kampf" />
+							<img class="images schoko_frame" src="./medien/bilder/2.2.narrator.png" alt="Bild vom Narrator Tablet Albyte mit der Textaufschrift: I am happy you survived this crash." />
+							<img class="images schoko_frame" src="./medien/bilder/2.3.hut.png" alt="Luzz Biteyear findet bei der Exploration einen Cowboyhut" />
 						</div>
 						<div class="wide_image">
-							<img class="galerie_breit schoko_frame" src="./medien/bilder/luzz_action_04.jpg" alt="Luzz Biteyear beim Andocken" />
+							<img class="galerie_breit schoko_frame" src="./medien/bilder/2.4.wide_western_setting.png" alt="InGame Screenshot mit Lebend- und Energieanzeige, sowie dem Biss-UI.Luzz Biteyear in der Wüste auf Exploration vor drei Gegnern" />
 						</div>
 					</div>
 				</figure>
 			</section>
 
-			<section class="section section_dunkel" id="features" data-narrator-msg="Laser oder Biss? Luzz entscheidet sich meistens falsch." data-narrator-pose="idle">
+			<section class="section section_dunkel" id="features" data-narrator-msg="Für jedes Problem gibt es einen Biss." data-narrator-pose="idle">
 				<p class="eyebrow">Features</p>
 				<h2>Game Highlights</h2>
 
@@ -112,26 +115,26 @@
 					</div>
 
 					<figure class="features_screens">
-						<img class="schoko_frame" src="./medien/bilder/screenshot_01.jpg" alt="Spielscreenshot: Erkunden im Canyon" />
-						<img class="schoko_frame" src="./medien/bilder/screenshot_02.jpg" alt="Spielscreenshot: Kampf" />
-						<img class="schoko_frame" src="./medien/bilder/screenshot_03.jpg" alt="Spielscreenshot: Rätsel" />
-						<img class="schoko_frame" src="./medien/bilder/screenshot_04.jpg" alt="Spielscreenshot: Steckerschweif-Interaktion" />
+						<img class="schoko_frame" src="./medien/bilder/3.1.inGameSquare_terminal.png" alt="Spielscreenshot: Luzz von hinten vor dem Terminal stehend" />
+						<img class="schoko_frame" src="./medien/bilder/3.2.inGameSquare_narrator_raetzel.png" alt="Spielscreenshot: Bild von dem Narrator Tablet Albyte während eines Rätzels" />
+						<img class="schoko_frame" src="./medien/bilder/3.3.inGameSquare_kampf.png" alt="Spielscreenshot: Luzz beim sicheren gewinnen gegen einen Bösewicht" />
+						<img class="schoko_frame" src="./medien/bilder/3.4.inGameSquare_kampf2.png" alt="Spielscreenshot: Luzz beim Kämpfen mit vier Gegnern gleichzeitig" />
 					</figure>
 				</div>
-
+				<!--rel="noopener" verhindert, dass eine Seite, die mit target="_blank" in einem neuen Tab geöffnet wird, die Ursprungsseite per JavaScript manipulieren kann.-->
 				<div class="features_cta">
 					<p>Erkunden, kämpfen, Rätsel knacken – im Canyon wartet einiges. Spielaufbau, Steuerung und die ganze Story gibt's im Detail auf itch.io.</p>
-					<img class="features_cta_bild schoko_frame" src="./medien/bilder/luzz_narrator_zeigt.jpg" alt="Luzz Biteyear und der Narrator zeigen auf den Button" />
+					<img class="features_cta_bild schoko_frame" src="./medien/bilder/luzz_zeigt_auf_button.png" alt="Luzz Biteyear zeigt auf den sich unter dem Bild befindenden Mehr-Details-Button" />
 					<a class="button_secondary" href="https://itch.io" target="_blank" rel="noopener">Mehr Details</a>
 				</div>
 			</section>
 
-			<section class="section section_dunkel" id="trailer" data-narrator-msg="Ton an. Vertrau mir, ich bin der Erzähler." data-narrator-pose="smirk">
+			<section class="section section_dunkel" id="trailer" data-narrator-msg="Anschnallen! Falls Luzz überhaupt einen Gurt hat...?!" data-narrator-pose="smirk">
 				<p class="eyebrow">Trailer</p>
 				<h2 class="cta-text">Tauche jetzt mit uns in die Weiten der Unendlichkeit ein</h2>
 
 				<figure class="trailer_rahmen tv_bildschirm">
-					<video id="trailer_video" controls poster="./medien/bilder/trailer_poster.jpg">
+					<video id="trailer_video" controls poster="./medien/bilder/trailer_poster.png">
 						<!-- Platzhalter: Poster-Bild wird gezeigt, bis der Trailer fertig ist. Sobald er da ist, Zeile unten einkommentieren. -->
 						<!-- <source src="./medien/video/trailer.mp4" type="video/mp4"> -->
 					</video>
@@ -170,11 +173,12 @@
 				</div>
 			</section>
 
-			<section class="section section_dunkel cta_abschluss" data-narrator-msg="Hut gefunden. Jetzt fehlt nur noch du." data-narrator-pose="smirk">
+			<section class="section section_dunkel cta_abschluss" data-narrator-msg="Hut gefunden. Jetzt fehlst nur noch du." data-narrator-pose="smirk">
 				<figure class="hut_frame">
-					<img class="schoko_frame" src="./medien/bilder/luzz_hut.jpg" alt="Luzz Biteyear mit gefundenem Cowboyhut" />
+					<img class="schoko_frame" src="./medien/bilder/cta_bild.png" alt="Luzz Biteyear mit offenen einladenden Armen auf einem Canyon stehend" />
 					<div class="hut_inhalt">
-						<h3 class="cta-text">Lass uns jetzt gemeinsame Abenteuer erleben</h3>
+						<h3 class="cta-text">Lass uns jetzt gemeinsame <br>Abenteuer erleben</h3>
+						<!--<br> nur zum Textumbruch des Textes, welcher auf dem Bild liegt, in der Desktoansicht nicht das letzte Wort gestaltungstechnisch alleine steht-->
 						<a class="button_primary" href="https://itch.io" target="_blank" rel="noopener">Jetzt spielen</a>
 					</div>
 				</figure>
@@ -206,7 +210,8 @@
 
 				<section class="fuss_block">
 					<h3>Credits</h3>
-					<p>&copy; 2026 Luzz Biteyear<br />SRH Heidelberg</p>
+					<p>&copy; 2026 Luzz Biteyear</p>
+					<p>SRH Heidelberg</p>
 				</section>
 
 				<section class="fuss_block">
@@ -221,9 +226,9 @@
 					<h3>Social Media</h3>
 					<!-- Barrierefreiheit: Icon-Links ohne sichtbaren Text bekommen ein aria-label -->
 					<section class="fuss_social">
-						<a href="#" aria-label="Instagram"><img src="./icons/icon_instagram.svg" alt="" /></a>
-						<a href="#" aria-label="TikTok"><img src="./icons/icon_tiktok.svg" alt="" /></a>
-						<a href="#" aria-label="Facebook"><img src="./icons/icon_facebook.svg" alt="" /></a>
+						<a href="#" aria-label="Instagram"><img src="./icons/icon_instagram.svg" alt="Instagram-Icon ohne Verlinkung" /></a>
+						<a href="#" aria-label="TikTok"><img src="./icons/icon_tiktok.svg" alt="Tiktok-Icon ohne Verlinkung" /></a>
+						<a href="#" aria-label="Facebook"><img src="./icons/icon_facebook.svg" alt="Facebook-Icon ohne Verlinkung" /></a>
 					</section>
 				</section>
 
@@ -235,8 +240,9 @@
 		<a href="#" id="nach_oben" class="nach_oben" aria-label="Nach oben scrollen">↑</a>
 
 		<!-- Navigation, Trailer-Button (Pflicht-Interaktion) -->
+		<!--defer: KI-Hilfe: Der Browser lädt das Skript im Hintergrund mit, wartet aber mit der Ausführung, bis die komplette HTML-Seite eingelesen ist. Das Skript läuft dann garantiert erst, wenn alle Elemente bereits existieren.-->
 		<script src="./funktion/function.js" defer></script>
-		<!-- Narrator (Modul) -->
+		<!-- Narrator (Modul) Philipp Locher, GME -->
 		<script type="module" src="./scripts/Main.js"></script>
 	</body>
 </html>

@@ -1,4 +1,5 @@
 // Luzz Biteyear – function.js
+//Autorin: Jennifer Mohr
 //
 // Aufgaben dieser Datei:
 // 1. Burger-Menü (Mobil) und Backdrop öffnen/schließen
@@ -6,16 +7,22 @@
 // 3. Pflicht-Interaktion: Trailer-Button startet das Video und blendet sich aus
 //
 // Hinweis: Der Narrator läuft separat über ./scripts/Main.js.
+// Autor: Philipp Locher:GME
 
-//DOMContentLoaded: Warte, bis das HTML vollständig eingelesen ist, bevor irgendein Element gesucht wird. Ohne das würde JavaScript versuchen, z. B. den Burger-Button zu finden, bevor er im HTML überhaupt existiert – und nichts würde funktionieren.//
+//DOMContentLoaded: Recherche mit Hilfe von Anthropic/Claude
+//Bedeutung:Warte, bis das HTML vollständig eingelesen ist, bevor irgendein Element gesucht wird. Ohne das würde JavaScript versuchen, z. B. den Burger-Button zu finden, bevor er im HTML überhaupt existiert – und nichts würde funktionieren.//
 
 //4 Variabeln//
 document.addEventListener("DOMContentLoaded", function () {
 	var nav = document.getElementById("Navleiste");
 	var menueIcon = document.getElementById("Menueicon");
+	
 	var navGriff = document.getElementById("nav_griff");
 	var navBackdrop = document.getElementById("nav_backdrop");
+	//Quelle:https://wiki.selfhtml.org/wiki/JavaScript/DOM/Document/getElementById
+	//Backdrop= Öffnet sich das Menü, wird alles drumherum abgedunkelt
 
+	//(!nav)= Wenn Nav nicht vorhanden ist
 	if (!nav) {
 		return;
 	}
@@ -23,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	// ---------------------------------------------------------------
 	// Navigation öffnen / schließen:
 	
-	// Wenn sich die Navigation öffnet oder schließt, ändert sich die Höhe der Seite (Bilder werden neu angeordnet). Ohne Gegenmaßnahme würde der Browser die Scroll-Position hart abschneiden, wenn man weit unten auf der Seite war – man würde ruckartig nach oben springen. Die beiden Funktionen positionMerken() und positionWiederherstellen() merken sich die relative Position (in Prozent der Seite) vor der Änderung und stellen sie danach wieder her.
-
+	// Bedeutung: Wenn sich die Navigation öffnet oder schließt, ändert sich die Höhe der Seite (Bilder werden neu angeordnet). Ohne Gegenmaßnahme würde der Browser die Scroll-Position hart abschneiden, wenn man weit unten auf der Seite war – man würde ruckartig nach oben springen. Die beiden Funktionen positionMerken() und positionWiederherstellen() merken sich die relative Position (in Prozent der Seite) vor der Änderung und stellen sie danach wieder her.
+	//positionMerken: Berechnung wie Weit man prozentual heruntergescrollt hat.
 	function positionMerken() {
 		var maxVorher = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
 		return window.scrollY / maxVorher;
@@ -40,8 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	function navUmschalten() {
 		var verhaeltnis = positionMerken();
 	//classList.toggle("offen"): Fügt Navileiste die CSS-Klasse „offen“ hinzu, wenn sie noch nicht da ist – und entfernt sie wieder, wenn sie schon da ist(Schalter). 
-	//Das CSS reagiert darauf: ohne die Klasse „offen“ ist die Navigation per display:none unsichtbar (Mobil) bzw. außerhalb des Bildschirms geschoben (Tablet); mit der Klasse wird sie sichtbar bzw. reingeschoben. 
+	//Das CSS reagiert darauf: ohne die Klasse „offen“, ist die Navigation per display:none unsichtbar (Mobil) bzw. außerhalb des Bildschirms geschoben (Tablet); mit der Klasse wird sie sichtbar bzw. reingeschoben. 
 	//JavaScript setzt hier nur die Klasse – wie die Navigation dann tatsächlich aussieht, entscheidet ausschließlich das CSS.
+	//Aria= Screenreader (KI Claude Hilfe): Sagt, offen oder geschlossen//
 		var offen = nav.classList.toggle("offen");
 		document.body.classList.toggle("nav-offen", offen);
 
@@ -83,9 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		positionWiederherstellen(verhaeltnis);
 	}
-	//Da Burger-Icon kein Button ist, werden im Code role, tabindex und aria-* Attribute per JavaScript nachgerüstet, plus ein eigener keydown-Listener für Enter/Leertaste. Auch die Escape-Taste schließt die Navigation, egal wo man sich gerade befindet.
+	//Da Burger-Icon kein Button ist, werden im Code role, tabindex und aria- Attribute per JavaScript nachgerüstet, plus ein eigener keydown-Listener für Enter/Leertaste. Auch die Escape-Taste schließt die Navigation, egal wo man sich gerade befindet.
 	if (menueIcon) {
-		// Burger-Icon ist ein <div>: Tastaturbedienung nachrüsten.
+		
 		menueIcon.setAttribute("role", "button");
 		menueIcon.setAttribute("tabindex", "0");
 		menueIcon.setAttribute("aria-controls", "Navlinks");
@@ -96,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	//	„addEventListener“ verbindet ein Element mit einer Aktion: Wenn hier draufgeklickt wird, führe diese Funktion aus. Burger-Icon und Tablet-Griff nutzen dieselbe navUmschalten()-Funktion (auf/zu abwechselnd), die abgedunkelte Fläche hinter der geöffneten Navigation schließt sie nur (navSchliessen())
 	
 	
-	//Beim Klick auf „Story“, „Galerie“ usw. wird der normale Sprungverhalten des Browsers unterdrückt (e.preventDefault()) und stattdessen manuell zum Zielabschnitt gescrollt – aber erst, nachdem sich die Navigation geschlossen und die Seite neu angeordnet hat. Sonst würde man während des Scrollens durch die Höhenänderung leicht daneben landen.
+	//Claude KI Hilfe: Beim Klick auf „Story“, „Galerie“ usw. wird der normale Sprungverhalten des Browsers unterdrückt (e.preventDefault()) und stattdessen manuell zum Zielabschnitt gescrollt – aber erst, nachdem sich die Navigation geschlossen und die Seite neu angeordnet hat. Sonst würde man während des Scrollens durch die Höhenänderung leicht daneben landen.
+	//https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/Kontextmen%C3%BC
 		menueIcon.addEventListener("keydown", function (e) {
 			if (e.key === "Enter" || e.key === " ") {
 				e.preventDefault();
@@ -113,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		navGriff.addEventListener("click", navUmschalten);
 	}
 
-	// Escape schließt die offene Navigation.
+	// Escape schließt die offene //Navigation.https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event#Properties
 	document.addEventListener("keydown", function (e) {
 		if (e.key === "Escape") {
 			navSchliessen();
@@ -136,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// erst nach dem Reflow selbst scrollen.
 
 	var navSprungLinks = document.querySelectorAll("#Navlinks a[href^='#']");
-
+	//https://wiki.selfhtml.org/wiki/JavaScript/DOM/ParentNode/querySelectorAll
 	navSprungLinks.forEach(function (link) {
 		link.addEventListener("click", function (e) {
 			var ziel = document.querySelector(link.getAttribute("href"));
@@ -144,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			nav.classList.remove("offen");
 			document.body.classList.remove("nav-offen");
-
+	//https://wiki.selfhtml.org/wiki/JavaScript/DOM/Element/setAttribute
 			if (menueIcon) {
 				menueIcon.setAttribute("aria-expanded", "false");
 			}
@@ -153,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				navGriff.setAttribute("aria-expanded", "false");
 				navGriff.textContent = "›";
 			}
-
+	//https://wiki.selfhtml.org/wiki/JavaScript/DOM/Element/scrollIntoView
 			setTimeout(function () {
 				if (ziel) {
 					ziel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -172,9 +181,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (trailerButton && trailerVideo) {
 		trailerButton.addEventListener("click", function () {
 			var abspielen = trailerVideo.play();
+	//KI Unterstützung, dass Button und Trailer gleichzeitig möglich sind.
+	//&&=Sicherheitsabfrage: Nur wenn beide Elemente wirklich existieren, wird der restliche Code innerhalb der geschweiften Klammern überhaupt ausgeführt.
 
 			// Solange noch keine Videoquelle eingebunden ist, schlägt play()
 			// fehl – der Button bleibt dann sichtbar statt zu verschwinden.
+			//https://wiki.selfhtml.org/wiki/JavaScript/Operatoren/Typ-_und_Objektinspektion
+
 			if (abspielen && typeof abspielen.catch === "function") {
 				abspielen
 					.then(function () {

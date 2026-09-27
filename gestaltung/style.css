@@ -179,9 +179,8 @@ body {
     display: none;
 }
 
-/* Tablet-Griff für die Sidebar-Navigation (Mohr): standardmäßig aus, nur im
-   Tablet-Query unten sichtbar. Ursprünglich aus dem Heimische-Helden-
-   Referenzprojekt übernommen. */
+/* Tablet-Griff JavaScript für die Sidebar-Navigation (Mohr): standardmäßig aus, nur im
+   Tablet-Query unten sichtbar. */
 .nav_griff {
     display: none;
 }
@@ -357,7 +356,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
 	content: "";
 	position: absolute;
 	inset: 0;
-	background-color: rgba(26, 10, 8, 0.55);
+	background: linear-gradient(to bottom, rgba(26, 10, 8, 0) 0%, rgba(26, 10, 8, 0.07) 66%, rgba(26, 10, 8, 0.65) 100%);
 	z-index: 1;
 }
 
@@ -711,7 +710,7 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 2rem;
+    bottom: 1.0rem;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -1238,13 +1237,13 @@ p {																										/*max-width: 65ch → begrenzt die Breite von Flie�
     }
 
     .hut_frame {
-        max-width: 65%;
+        max-width: 80%;
         aspect-ratio: auto;
     }
 
     .hut_frame img {
         height: auto;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 1 / 1;
     }
 
     .hut_inhalt {

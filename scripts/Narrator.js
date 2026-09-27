@@ -1,5 +1,5 @@
 export class Narrator {
-  constructor({ containerId, textElementId, imageElementId, autoHideDelay = 5000 }) {
+  constructor({ containerId, textElementId, imageElementId, autoHideDelay = 3000 }) {
     this.container = document.getElementById(containerId);
     this.textEl = document.getElementById(textElementId);
     this.imageEl = document.getElementById(imageElementId);
