@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     containerId: "narrator-widget",
     textElementId: "narrator-display-text",
     imageElementId: "narrator-avatar",
-    autoHideDelay: 6000 
+    autoHideDelay: 4000 
   });
 
   setupSectionObserver({
